@@ -1,0 +1,84 @@
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+nav {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: #ffffff;
+}
+
+h1, h2 {
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+section {
+    padding: 2rem;
+    border-bottom: 1px solid #444444;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #121212;
+    color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.btn-primary {
+    background: #ff7e5f;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #feb47b;
+}
+
+.form-control {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+}
+
+.form-control::placeholder {
+    color: #888888;
+}
+
+.rounded-title {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+}
+
+.rounded-title h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.rounded-title p {
+    margin-top: 10px;
+    color: #ffc99f
+}
+

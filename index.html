@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathan Clarke Music</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Nathan Clarke Music</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Music</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <header class="container text-center mt-4 rounded-title">
+        <h1>Welcome to Nathan Clarke Music</h1>
+        <p>Your journey into the world of bass and beyond starts here.</p>
+    </header>
+    <section class="container mt-4">
+        <h2>About Me</h2>
+        <p>Hi, I'm Nathan Clarke, a bass virtuoso dedicated to pushing the boundaries of music. My journey is all about exploring sound and connecting with audiences through intense, passionate performances.</p>
+    </section>
+    <section class="container mt-4">
+        <h2>My Music</h2>
+        <p>Check out some of my latest tracks below:</p>
+        <!-- Example audio player -->
+        <audio controls>
+            <source src="fractal resonance 2.wav" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </section>
+    <section class="container mt-4">
+        <h2>Blog</h2>
+        <p>Stay tuned for updates on my music journey and more.</p>
+    </section>
+    <section class="container mt-4">
+        <h2>Contact Me</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" rows="3" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </section>
+</body>
+</html>
+
