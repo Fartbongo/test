@@ -47,9 +47,12 @@
         <h1>Welcome to Nathan Clarke Music</h1>
         <p>Your journey into the world of bass and beyond starts here.</p>
     </header>
+    <section class="centered-image">
+    <img src="IMG_3.jpg" alt="Circular Image" class="circular-image">
+    </section>
     <section id="about" class="container mt-4">
         <h2>About Me</h2>
-        <p>Hi, I'm Nathan Clarke, a bass virtuoso dedicated to pushing the boundaries of music. My journey is all about exploring sound and connecting with audiences through intense, passionate performances.</p>
+        <p>A passionate bassist, Nathan Clark brings a unique blend of rhythm and melody to every performance. With a rich career that spans twenty years, Nathan has played with numerous bands and artists, crafting a distinctive sound that resonates with audiences. Known for his dynamic performances in numerous venues across New York City, Nathan continues to push the boundaries of musical expression.</p>
     </section>
     <section id="music" class="container mt-4">
         <h2>My Music</h2>
@@ -85,9 +88,9 @@
     </section>
     <section id="press" class="container mt-4">
         <h2>Press and Reviews</h2>
-        <p>Billy Martin remarked on Nathan Clark's exceptional bass playing, saying, 'You're a good bass player.' Nathan is featured on Billy Martin's "Meshes" album. <br>
+        <p>Billy Martin remarked on Nathan Clark's exceptional bass playing, saying, 'You're a good bass player.' Nathan is featured on Billy Martin's "Meshes" album. <br><br>
 
-        Brian Haas praised Nathan Clark's musical talent, expressing his admiration by stating, 'wow, beautiful, otherworldly, sparkly magic' <br>
+        Brian Haas praised Nathan Clark's musical talent, expressing his admiration by stating, 'wow, beautiful, otherworldly, sparkly magic' <br><br>
         
         Featured on The Moderns radio show.
         </p>
@@ -98,18 +101,18 @@
     </section>
     <section id="contact" class="container mt-4">
         <h2>Contact Me</h2>
-        <form>
+        <form action="/send" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
             </div>
             <div class="form-group">
                 <label for="message">Message</label>
-                <textarea class="form-control" id="message" rows="3" placeholder="Your Message"></textarea>
+                <textarea class="form-control" id="message" name="message" rows="3" placeholder="Your Message"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Send</button>
         </form>

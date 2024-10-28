@@ -135,6 +135,20 @@ h1, h2 {
     font-family: 'Roboto', sans-serif;
     margin-bottom: 1rem;
 }
+.centered-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Optional, for centering the image vertically */
+}
+
+.circular-image {
+    border-radius: 50%;
+    width: 500px; /* Adjust the size as needed */
+    height: 500px; /* Adjust the size as needed */
+    object-fit: cover;
+}
+
 
 .rounded-title h1 {
     font-family: 'Poppins', cursive;
