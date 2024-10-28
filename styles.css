@@ -3,6 +3,8 @@ body {
     color: #e0e0e0;
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
+    padding-top: 20px; /* Adjust based on your nav bar height */
+    background-color: #1a1a1a;
 }
 
 nav {
@@ -14,6 +16,11 @@ header {
     padding: 2rem 0;
     background: linear-gradient(135deg, #ff7e5f, #feb47b);
     color: #ffffff;
+}
+
+header#home {
+    padding-top: 80px; /* Extra padding for the home section */
+    margin-top: -80px; /* Same value as padding-top to offset the anchor jump */
 }
 
 h1, h2 {
@@ -32,6 +39,8 @@ h2 {
 section {
     padding: 2rem;
     border-bottom: 1px solid #444444;
+    padding-top: 80px; /* Adjust based on your navbar height */
+    margin-top: -80px;
 }
 
 footer {
@@ -63,6 +72,7 @@ footer {
     color: #888888;
 }
 
+/* title card */
 .rounded-title {
     background-color: #333;
     padding: 20px;
@@ -80,5 +90,89 @@ footer {
 .rounded-title p {
     margin-top: 10px;
     color: #ffc99f
+}
+
+/* Nav bar gradient background */
+nav.navbar {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    position: -webkit-sticky;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Link hover effect */
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff7e5f !important;
+}
+
+/* Toggler icon customization */
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/></svg>');
+}
+ /*font*/
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: #ffffff;
+}
+
+h1, h2 {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.rounded-title h1 {
+    font-family: 'Poppins', cursive;
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.rounded-title p {
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    color: #ffe2cc;
+}
+
+/*carousel*/
+.carousel-item img {
+    filter: grayscale(50%);
+    transition: transform 1s, filter 1s ease-in-out;
+    width: 200px;
+    height: 700px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: auto;
+    display: block;
+    transform: scale(0.8);
+}
+
+.carousel-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #ff7e5f;
+    border-radius: 50%;
+}
+
+.carousel-indicators li {
+    background-color: #ff7e5f;
 }
 
