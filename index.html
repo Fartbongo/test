@@ -41,6 +41,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#twitch-stream">Live Stream</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -55,22 +58,32 @@
                 <h1>Welcome to Nathan Clarke Music</h1>
                 <p>Your journey into the world of bass and beyond starts here.</p>
             </header>
-            <section class="centered-image">
+            
+            <!-- Circular Image Section (Moved) -->
+            <section class="centered-image mt-4">
                 <img src="IMG_3.jpg" alt="Circular Image" class="circular-image">
             </section>
+
             <section id="about" class="container mt-4">
                 <h2>About Me</h2>
                 <p>A passionate bassist, Nathan Clark brings a unique blend of rhythm and melody to every performance. With a rich career that spans twenty years, Nathan has played with numerous bands and artists, crafting a distinctive sound that resonates with audiences. Known for his dynamic performances in numerous venues across New York City, Nathan continues to push the boundaries of musical expression.</p>
             </section>
-            <section id="music" class="container mt-4">
-                <h2>My Music</h2>
-                <p>Check out some of my latest tracks below:</p>
-                <h3>Fractal Resonance 2</h3>
-                <audio controls>
-                    <source src="fractal resonance 2.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+            
+            <!-- Twitch Stream Section (Moved) -->
+            <section id="twitch-stream" class="container mt-4">
+                <h2>Live Stream</h2>
+                <div style="text-align: center;">
+                    <iframe
+                        src="https://player.twitch.tv/?channel=fartbongo&parent=fartbongo.github.io"
+                        height="400"
+                        width="600"
+                        allowfullscreen
+                        frameborder="0">
+                    </iframe>
+                </div>
+                <p>Watch my live performances and sessions here on Twitch!</p>
             </section>
+            
             <section id="gallery" class="container mt-4">
                 <h2>Gallery</h2>
                 <div id="photoCarousel" class="carousel slide" data-ride="carousel">
@@ -92,6 +105,7 @@
                     </a>
                 </div>
             </section>
+            
             <section id="press" class="container mt-4">
                 <h2>Press and Reviews</h2>
                 <p>Billy Martin remarked on Nathan Clark's exceptional bass playing, saying, 'You're a good bass player.' Nathan is featured on Billy Martin's "Meshes" album. <br><br>
@@ -99,10 +113,12 @@
                 Featured on The Moderns radio show.
                 </p>
             </section>
+            
             <section id="blog" class="container mt-4">
                 <h2>Blog</h2>
                 <p>Stay tuned for updates on my music journey and more.</p>
             </section>
+            
             <section id="contact" class="container mt-4">
                 <h2>Contact Me</h2>
                 <form action="https://formspree.io/f/xqakewvz" method="POST">
