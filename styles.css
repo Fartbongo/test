@@ -5,6 +5,7 @@ body {
     line-height: 1.6;
     padding-top: 20px; /* Adjust based on your nav bar height */
     background-color: #1a1a1a;
+    font-size: 1rem; /* Base font size for the entire body */
 }
 
 nav {
@@ -14,7 +15,7 @@ nav {
 header {
     text-align: center;
     padding: 2rem 0;
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    background: linear-gradient(135deg, #9b5de5, #f15bb5); /* Updated to purple gradient */
     color: #ffffff;
 }
 
@@ -29,11 +30,11 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem; /* Adjust font size for h1 */
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2.5rem; /* Adjust font size for h2 */
 }
 
 section {
@@ -41,6 +42,10 @@ section {
     border-bottom: 1px solid #444444;
     padding-top: 80px; /* Adjust based on your navbar height */
     margin-top: -80px;
+}
+
+p {
+    font-size: 1.25rem; /* Adjust font size for paragraphs */
 }
 
 footer {
@@ -54,12 +59,12 @@ footer {
 }
 
 .btn-primary {
-    background: #ff7e5f;
+    background: #9b5de5; /* Updated to match purple gradient */
     border: none;
 }
 
 .btn-primary:hover {
-    background: #feb47b;
+    background: #f15bb5; /* Updated to match purple gradient */
 }
 
 .form-control {
@@ -83,18 +88,18 @@ footer {
 
 .rounded-title h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Adjust font size for title h1 */
     color: #ffffff;
 }
 
 .rounded-title p {
     margin-top: 10px;
-    color: #ffc99f
+    color: #ffc99f;
 }
 
 /* Nav bar gradient background */
 nav.navbar {
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    background: linear-gradient(135deg, #9b5de5, #f15bb5); /* Updated to purple gradient */
     position: -webkit-sticky;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -109,32 +114,14 @@ nav.navbar {
 }
 
 .navbar-nav .nav-link:hover {
-    color: #ff7e5f !important;
+    color: #9b5de5 !important; /* Updated to match purple gradient */
 }
 
 /* Toggler icon customization */
 .navbar-toggler-icon {
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/></svg>');
 }
- /*font*/
-body {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-}
 
-header {
-    text-align: center;
-    padding: 2rem 0;
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
-    color: #ffffff;
-}
-
-h1, h2 {
-    font-family: 'Roboto', sans-serif;
-    margin-bottom: 1rem;
-}
 .centered-image {
     display: flex;
     justify-content: center;
@@ -144,11 +131,10 @@ h1, h2 {
 
 .circular-image {
     border-radius: 50%;
-    width: 500px; /* Adjust the size as needed */
-    height: 500px; /* Adjust the size as needed */
+    width: 700px; /* Adjust the size as needed */
+    height: 700px; /* Adjust the size as needed */
     object-fit: cover;
 }
-
 
 .rounded-title h1 {
     font-family: 'Poppins', cursive;
@@ -162,8 +148,9 @@ h1, h2 {
     color: #ffe2cc;
 }
 
-/*carousel*/
+/* carousel */
 .carousel-item img {
+    object-position: 0 30%;
     filter: grayscale(50%);
     transition: transform 1s, filter 1s ease-in-out;
     width: 200px;
@@ -182,11 +169,97 @@ h1, h2 {
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: #ff7e5f;
+    background-color: #9b5de5; /* Updated to match purple gradient */
     border-radius: 50%;
 }
 
 .carousel-indicators li {
-    background-color: #ff7e5f;
+    background-color: #9b5de5; /* Updated to match purple gradient */
 }
 
+/* Container for main content and sidebar */
+.main-container {
+    display: flex;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 10%; /* Adjust the width as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align the vertical lines to the right side */
+    padding: 20px;
+}
+
+/* Main content styling */
+.content {
+    width: 80%; /* Adjust the width as needed */
+    padding: 20px;
+    margin: 20px 0; /* Adjust margin to your preference */
+}
+
+/* Vertical line styling */
+.vertical-line {
+    width: 2px; /* Initial width of the line */
+    height: 100vh; /* Full height of the viewport */
+    background: linear-gradient(to bottom, #9b5de5, #f15bb5);
+    margin-bottom: 20px; /* Space between the two lines */
+    position: relative;
+}
+
+/* Tapering off the line */
+.vertical-line::before {
+    content: '';
+    position: absolute;
+    left: -2px; /* Adjust as needed to position the taper effect */
+    top: 0;
+    width: 6px; /* Start width for the taper effect */
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(155, 93, 229, 0), rgba(241, 91, 181, 1)); /* Gradient for the taper effect */
+}
+
+/* Styling for the second, darker vertical line */
+.vertical-line-darker {
+    width: 2px; /* Initial width of the line */
+    height: 100vh; /* Full height of the viewport */
+    background: linear-gradient(to bottom, #6b2cb2, #b04891); /* Darker gradient */
+    position: relative;
+}
+
+/* Tapering off the darker line */
+.vertical-line-darker::before {
+    content: '';
+    position: absolute;
+    left: -2px; /* Adjust as needed to position the taper effect */
+    top: 0;
+    width: 6px; /* Start width for the taper effect */
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(107, 44, 178, 0), rgba(176, 72, 145, 1)); /* Gradient for the taper effect */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    body {
+        font-size: 0.9rem; /* Slightly smaller font size on small screens */
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .content {
+        width: 90%; /* Make the main content take more space on small screens */
+    }
+
+    .sidebar {
+        display: none; /* Hide the sidebar on small screens */
+    }
+}
