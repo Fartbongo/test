@@ -11,9 +11,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="styles.css" rel="stylesheet">
-        <!-- Add this line to include FontAwesome for icons -->
+    <!-- Add this line to include FontAwesome for icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com;
+    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+    img-src 'self' data:;
+    media-src 'self';
+    frame-src 'self' https://player.twitch.tv https://www.twitch.tv;">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -76,11 +83,8 @@
                 <h2>Music</h2>
                 <p>Listen to my latest tracks and albums here.</p>
                 <h3>Fractal Resonance 2</h3>
-                <div class="audio-player">
-                    <audio controls>
-                        <source src="audio/fractal_resonance_2.mp3" type="audio/mpeg">
-                        Sorry, your browser does not support audio playback.
-                    </audio>
+                <div class="audio-player"> <audio controls> <source src="fractal resonance 2.mp3" type="audio/mpeg"> 
+                    Sorry, your browser does not support audio playback. </audio> 
                 </div>
             </section>
             <section id="twitch-stream" class="container mt-4">
