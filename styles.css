@@ -296,7 +296,8 @@ nav.navbar {
 .keyboard {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .key {
@@ -306,14 +307,26 @@ nav.navbar {
     background: white;
     border: 1px solid black;
     cursor: pointer;
-    display: flex;
-    align-items: flex-end; /* Align text to the bottom */
-    justify-content: center; /* Center text horizontally */
-    position: relative;
 }
 
 .key:active {
     background: lightgray;
+}
+
+@media (max-width: 768px) {
+    .key {
+        width: 30px;
+        height: 150px;
+        margin: 0 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .key {
+        width: 20px;
+        height: 100px;
+        margin: 0 1px;
+    }
 }
 
 .key span {
