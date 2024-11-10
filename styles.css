@@ -269,3 +269,56 @@ nav.navbar {
         display: none; /* Hide the sidebar on small screens */
     }
 }
+.twitch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.twitch-stream, .twitch-chat {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+}
+
+@media (min-width: 768px) {
+    .twitch-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .twitch-stream, .twitch-chat {
+        width: 48%;
+        height: 500px;
+    }
+}
+.keyboard {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.key {
+    width: 40px;
+    height: 200px;
+    margin: 0 5px;
+    background: white;
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end; /* Align text to the bottom */
+    justify-content: center; /* Center text horizontally */
+    position: relative;
+}
+
+.key:active {
+    background: lightgray;
+}
+
+.key span {
+    position: absolute;
+    bottom: 10px; /* Adjust as needed */
+    font-size: 1rem; /* Adjust font size as needed */
+    color: black;
+}

@@ -11,7 +11,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="styles.css" rel="stylesheet">
-    <!-- Add this line to include FontAwesome for icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
@@ -50,6 +49,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#blog">Blog</a>
+                <!-- make a nav bar item for the keyboard-->
+                <li class="nav-item">
+                    <a class="nav-link" href="#keyboard">Synthesizer</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
@@ -92,24 +94,26 @@
                 <p>Watch my live performances and sessions here on Twitch, and chat with me!</p>
             
                 <!-- Twitch Stream Embed -->
-                <div class="twitch-stream">
-                    <iframe
-                        src="https://player.twitch.tv/?channel=fartbongo&parent=fartbongo.github.io"
-                        height="400"
-                        width="600"
-                        allowfullscreen
-                        frameborder="0">
-                    </iframe>
-                </div>
-            
-                <!-- Twitch Chat Embed -->
-                <div class="twitch-chat mt-4">
-                    <iframe
-                        src="https://www.twitch.tv/embed/fartbongo/chat?parent=fartbongo.github.io"
-                        height="500"
-                        width="600"
-                        frameborder="0">
-                    </iframe>
+                <div class="twitch-container">
+                    <div class="twitch-stream">
+                        <iframe
+                            src="https://player.twitch.tv/?channel=fartbongo&parent=fartbongo.github.io"
+                            frameborder="0"
+                            allowfullscreen="true"
+                            scrolling="no"
+                            height="100%"
+                            width="100%">
+                        </iframe>
+                    </div>
+                    <div class="twitch-chat">
+                        <iframe
+                            src="https://www.twitch.tv/embed/fartbongo/chat?parent=fartbongo.github.io"
+                            frameborder="0"
+                            scrolling="no"
+                            height="100%"
+                            width="100%">
+                        </iframe>
+                    </div>
                 </div>
             </section>
             
@@ -148,7 +152,35 @@
                 <h2>Blog</h2>
                 <p>Stay tuned for updates on my music journey and more.</p>
             </section>
-            
+            <!-- This section represents a virtual keyboard for musical notes -->
+            <div id="keyboard">
+                <h2>Synthesizer</h2>
+                <p>Click on the keys to play notes. Use the controls to change the waveform and attack.</p>
+                <div class="keys" style="display: flex;">
+                    <div class="key" data-note="C4">C</div>
+                    <div class="key" data-note="D4">D</div>
+                    <div class="key" data-note="E4">E</div>
+                    <div class="key" data-note="F4">F</div>
+                    <div class="key" data-note="G4">G</div>
+                    <div class="key" data-note="A4">A</div>
+                    <div class="key" data-note="B4">B</div>
+                </div>
+                <div class="controls">
+                    <div>
+                        <label for="waveform">Waveform:</label>
+                        <select id="waveform">
+                            <option value="sine">Sine</option>
+                            <option value="square">Square</option>
+                            <option value="triangle">Triangle</option>
+                            <option value="sawtooth">Sawtooth</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="attack">Attack:</label>
+                        <input type="range" id="attack" min="0" max="2" step="0.01" value="0.01">
+                    </div>
+                </div>
+            </div>
             <section id="contact" class="container mt-4">
                 <h2>Contact Me</h2>
                 <form action="https://formspree.io/f/xqakewvz" method="POST">
@@ -181,5 +213,6 @@
     }); 
 }); 
 </script>    
+<script src="script.js"></script>
 </body>
 </html>
