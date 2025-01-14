@@ -14,7 +14,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net https://www.gstatic.com;
+    script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net https://www.gstatic.com 'nonce-123456';
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com;
     font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
     img-src 'self' data:;
@@ -147,7 +147,7 @@
                             <img src="IMG_2.JPG" class="d-block w-100 rounded-circle d-flex justify-content-center" alt="Nate jamming at bowery electric">
                         </div>
                         <div class="carousel-item">
-                            <img src="IMG_3.JPG" class="d-block w-100 rounded-circle d-flex justify-content-center" alt="Nate jamming at bryac">
+                            <img src="IMG_3.jpg" class="d-block w-100 rounded-circle d-flex justify-content-center" alt="Nate jamming at bryac">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#photoCarousel" role="button" data-slide="prev">
@@ -236,7 +236,7 @@
                 </form>
                 <div id="messages" class="mt-4"></div>
             </div>
-            <script>
+            <script nonce="123456">
                 const messageForm = document.getElementById('messageForm');
                 const messagesDiv = document.getElementById('messages');
 
