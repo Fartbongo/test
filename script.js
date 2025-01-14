@@ -45,7 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
             playTone(frequency, waveform, attack);
         });
     });
+});
 
+document.addEventListener('DOMContentLoaded', () => {
     const messageForm = document.getElementById('messageForm');
     const messagesDiv = document.getElementById('messages');
 
