@@ -193,54 +193,6 @@
                     <button type="submit" class="btn btn-primary">Send</button>
                 </form>
             </section>
-            <!-- Message Forum -->
-            <div class="container mt-5 message-forum">
-                <h2 class="forum-title mb-4">Message Forum</h2>
-                <form id="messageForm">
-                    <div class="form-group">
-                        <label for="username">Name:</label>
-                        <input type="text" class="form-control" id="username" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea class="form-control" id="message" rows="3" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-                <div id="messages" class="mt-4 messages-container"></div>
-            </div>
-            <script nonce="123456">
-                const messageForm = document.getElementById('messageForm');
-                const messagesDiv = document.getElementById('messages');
-
-                messageForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const username = document.getElementById('username').value;
-                    const message = document.getElementById('message').value;
-
-                    if (username && message) {
-                        // Directly write to Firebase
-                        firebase.database().ref('messages').push({
-                            username: username,
-                            message: message,
-                            timestamp: Date.now()
-                        });
-                        messageForm.reset();
-                    }
-                });
-
-                // Listen for new messages
-                firebase.database().ref('messages').on('child_added', (snapshot) => {
-                    const messageData = snapshot.val();
-                    const messageElement = document.createElement('div');
-                    messageElement.classList.add('message');
-                    // Simpler message display format
-                    messageElement.innerHTML = `
-                        <strong>${messageData.username}:</strong> ${messageData.message}
-                    `;
-                    messagesDiv.appendChild(messageElement);
-                });
-            </script>
         </div>
     </div>
 <footer class="container mt-5 text-center">
