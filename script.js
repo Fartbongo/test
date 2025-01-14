@@ -1,3 +1,5 @@
+import { database, ref, push, onChildAdded } from './firebase-init.js';
+
 $(document).ready(function () { 
     $('.navbar-nav>li>a').on('click', function () {
         $('.navbar-collapse').collapse('hide'); 
@@ -42,5 +44,30 @@ document.addEventListener('DOMContentLoaded', () => {
             const attack = parseFloat(document.getElementById('attack').value);
             playTone(frequency, waveform, attack);
         });
+    });
+
+    const messageForm = document.getElementById('messageForm');
+    const messagesDiv = document.getElementById('messages');
+
+    messageForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const message = document.getElementById('message').value;
+
+        push(ref(database, 'messages'), {
+            username: username,
+            message: message,
+            timestamp: Date.now()
+        });
+
+        messageForm.reset();
+    });
+
+    onChildAdded(ref(database, 'messages'), (snapshot) => {
+        const messageData = snapshot.val();
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+        messageElement.innerHTML = `<strong>${messageData.username}</strong>: ${messageData.message}`;
+        messagesDiv.appendChild(messageElement);
     });
 });
