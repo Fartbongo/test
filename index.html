@@ -246,20 +246,26 @@
                     const username = document.getElementById('username').value;
                     const message = document.getElementById('message').value;
 
-                    firebase.database().ref('messages').push({
-                        username: username,
-                        message: message,
-                        timestamp: Date.now()
-                    });
-
-                    messageForm.reset();
+                    if (username && message) {
+                        firebase.database().ref('messages').push({
+                            username: username,
+                            message: message,
+                            timestamp: Date.now()
+                        });
+                        messageForm.reset();
+                    }
                 });
 
                 firebase.database().ref('messages').on('child_added', (snapshot) => {
                     const messageData = snapshot.val();
                     const messageElement = document.createElement('div');
                     messageElement.classList.add('message');
-                    messageElement.innerHTML = `<strong>${messageData.username}</strong>: ${messageData.message}`;
+                    messageElement.innerHTML = `
+                        <div class="message-content">
+                            <span class="message-username">${messageData.username}</span>
+                            <span class="message-text">${messageData.message}</span>
+                        </div>
+                    `;
                     messagesDiv.appendChild(messageElement);
                 });
             </script>
