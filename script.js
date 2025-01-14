@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const username = document.getElementById('username').value;
         const message = document.getElementById('message').value;
 
-        push(ref(database, 'messages'), {
+        firebase.database().ref('messages').push({
             username: username,
             message: message,
             timestamp: Date.now()
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         messageForm.reset();
     });
 
-    onChildAdded(ref(database, 'messages'), (snapshot) => {
+    firebase.database().ref('messages').on('child_added', (snapshot) => {
         const messageData = snapshot.val();
         const messageElement = document.createElement('div');
         messageElement.classList.add('message');
