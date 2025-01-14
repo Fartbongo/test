@@ -341,3 +341,25 @@ nav.navbar {
     font-size: 1rem; /* Adjust font size as needed */
     color: black;
 }
+
+.message-forum {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.forum-title {
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+.messages-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.messages-container .message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
