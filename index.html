@@ -20,6 +20,24 @@
     img-src 'self' data:;
     media-src 'self';
     frame-src 'self' https://player.twitch.tv https://www.twitch.tv;">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+    <script nonce="123456">
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCk8RJvB6AmAFfWKZ-YdZa5oGZj1dmxGUw",
+            authDomain: "nateforum-102fa.firebaseapp.com",
+            projectId: "nateforum-102fa",
+            storageBucket: "nateforum-102fa.firebasestorage.app",
+            messagingSenderId: "530438819695",
+            appId: "1:530438819695:web:8d3de6806b34c91bc4629a",
+            measurementId: "G-3RM09BJKLV"
+        };
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -218,6 +236,32 @@
                 </form>
                 <div id="messages" class="mt-4"></div>
             </div>
+            <script nonce="123456">
+                const messageForm = document.getElementById('messageForm');
+                const messagesDiv = document.getElementById('messages');
+
+                messageForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const username = document.getElementById('username').value;
+                    const message = document.getElementById('message').value;
+
+                    firebase.database().ref('messages').push({
+                        username: username,
+                        message: message,
+                        timestamp: Date.now()
+                    });
+
+                    messageForm.reset();
+                });
+
+                firebase.database().ref('messages').on('child_added', (snapshot) => {
+                    const messageData = snapshot.val();
+                    const messageElement = document.createElement('div');
+                    messageElement.classList.add('message');
+                    messageElement.innerHTML = `<strong>${messageData.username}</strong>: ${messageData.message}`;
+                    messagesDiv.appendChild(messageElement);
+                });
+            </script>
             <script nonce="123456" src="bundle.js"></script>
         </div>
     </div>
