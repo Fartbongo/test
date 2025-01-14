@@ -247,6 +247,7 @@
                     const message = document.getElementById('message').value;
 
                     if (username && message) {
+                        // Directly write to Firebase
                         firebase.database().ref('messages').push({
                             username: username,
                             message: message,
@@ -256,20 +257,18 @@
                     }
                 });
 
+                // Listen for new messages
                 firebase.database().ref('messages').on('child_added', (snapshot) => {
                     const messageData = snapshot.val();
                     const messageElement = document.createElement('div');
                     messageElement.classList.add('message');
+                    // Simpler message display format
                     messageElement.innerHTML = `
-                        <div class="message-content">
-                            <span class="message-username">${messageData.username}</span>
-                            <span class="message-text">${messageData.message}</span>
-                        </div>
+                        <strong>${messageData.username}:</strong> ${messageData.message}
                     `;
                     messagesDiv.appendChild(messageElement);
                 });
             </script>
-            <script nonce="123456" src="bundle.js"></script>
         </div>
     </div>
 <footer class="container mt-5 text-center">
