@@ -1,10 +1,10 @@
-$(document).ready(function () { 
+document.addEventListener('DOMContentLoaded', () => {
+    // jQuery code
     $('.navbar-nav>li>a').on('click', function () {
         $('.navbar-collapse').collapse('hide'); 
-    }); 
-});
+    });
 
-document.addEventListener('DOMContentLoaded', () => {
+    // Plain JavaScript code
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
     const frequencies = {
         'C4': 261.63,
