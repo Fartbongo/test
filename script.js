@@ -1,5 +1,3 @@
-import { getDatabase, ref, push, onChildAdded } from 'firebase/database';
-
 $(document).ready(function () { 
     $('.navbar-nav>li>a').on('click', function () {
         $('.navbar-collapse').collapse('hide'); 
@@ -45,33 +43,4 @@ document.addEventListener('DOMContentLoaded', () => {
             playTone(frequency, waveform, attack);
         });
     });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const messageForm = document.getElementById('messageForm');
-    const messagesDiv = document.getElementById('messages');
-
-    if (messageForm && messagesDiv) {
-        messageForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const message = document.getElementById('message').value;
-
-            firebase.database().ref('messages').push({
-                username: username,
-                message: message,
-                timestamp: Date.now()
-            });
-
-            messageForm.reset();
-        });
-
-        firebase.database().ref('messages').on('child_added', (snapshot) => {
-            const messageData = snapshot.val();
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('message');
-            messageElement.innerHTML = `<strong>${messageData.username}</strong>: ${messageData.message}`;
-            messagesDiv.appendChild(messageElement);
-        });
-    }
 });
