@@ -341,3 +341,66 @@ nav.navbar {
     font-size: 1rem; /* Adjust font size as needed */
     color: black;
 }
+
+#playlist {
+    list-style-type: none;
+    padding: 0;
+}
+
+#playlist li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+#playlist li.active {
+    background-color: #8c00ff;
+    color: white;
+}
+
+.music-section {
+    border: 2px solid #6f00ff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #d773ffec;
+}
+
+.audio-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.audio-player audio {
+    width: 100%;
+    max-width: 600px;
+}
+
+.audio-player button {
+    margin: 10px;
+}
+
+#playlist {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#playlist li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+#playlist li.active {
+    background-color: #ae00ff;
+    color: white;
+}
+
+#currentTrackTitleSingle, #currentTrackTitleAlbum {
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}

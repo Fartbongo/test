@@ -43,4 +43,78 @@ document.addEventListener('DOMContentLoaded', () => {
             playTone(frequency, waveform, attack);
         });
     });
+
+    // Single
+    const audioPlayerSingle = document.getElementById('audioPlayerSingle');
+    const audioSourceSingle = document.getElementById('audioSourceSingle');
+    const currentTrackTitleSingle = document.getElementById('currentTrackTitleSingle');
+
+    // Album
+    const audioPlayerAlbum = document.getElementById('audioPlayerAlbum');
+    const audioSourceAlbum = document.getElementById('audioSourceAlbum');
+    const prevTrackButton = document.getElementById('prevTrack');
+    const nextTrackButton = document.getElementById('nextTrack');
+    const currentTrackTitleAlbum = document.getElementById('currentTrackTitleAlbum');
+    const playlistElement = document.getElementById('playlist');
+
+    const playlist = [
+        { title: 'Life', src: 'Life.wav' },
+        { title: 'Bacon and Eggs', src: 'bacon and eggs.wav' },
+        { title: 'Fuck Yea', src: 'fuck yea.wav' },
+        { title: 'Next', src: 'next.wav' },
+        { title: 'Natural', src: 'natural.wav' },
+        { title: 'Cleaner', src: 'cleaner.wav' },
+        { title: 'Jameos', src: 'jameos.wav' },
+        { title: 'RSA', src: 'RSA.wav' },
+        { title: 'Free Punk', src: 'free punk.wav' }
+    ];
+
+    let currentTrackIndex = 0;
+
+    function loadTrack(index) {
+        audioSourceAlbum.src = playlist[index].src;
+        currentTrackTitleAlbum.textContent = `Now Playing: ${playlist[index].title}`;
+        audioPlayerAlbum.load();
+        audioPlayerAlbum.play();
+        updatePlaylistHighlight();
+    }
+
+    function updatePlaylistHighlight() {
+        const playlistItems = document.querySelectorAll('#playlist li');
+        playlistItems.forEach((item, index) => {
+            if (index === currentTrackIndex) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+
+    audioPlayerAlbum.addEventListener('ended', () => {
+        currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+        loadTrack(currentTrackIndex);
+    });
+
+    prevTrackButton.addEventListener('click', () => {
+        currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+        loadTrack(currentTrackIndex);
+    });
+
+    nextTrackButton.addEventListener('click', () => {
+        currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+        loadTrack(currentTrackIndex);
+    });
+
+    // Display the playlist
+    playlist.forEach((track, index) => {
+        const li = document.createElement('li');
+        li.textContent = track.title;
+        li.addEventListener('click', () => {
+            currentTrackIndex = index;
+            loadTrack(currentTrackIndex);
+        });
+        playlistElement.appendChild(li);
+    });
+
+    loadTrack(currentTrackIndex);
 });

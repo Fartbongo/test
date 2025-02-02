@@ -76,14 +76,45 @@
             <section id="music" class="container mt-4">
                 <h2>Music</h2>
                 <p>Listen to my latest tracks and albums here.</p>
-                <h3>Fractal Resonance 2</h3>
-                <div class="audio-player"> <audio controls> <source src="fractal resonance 2.mp3" type="audio/mpeg"> 
-                    Sorry, your browser does not support audio playback. </audio> 
+                
+                
+                <!-- Album -->
+                <div class="music-section">
+                    <img src="oops.jpg" alt="Oops! All Jameos! Vol. 1" class="img-fluid mt-3">
+                    <h3>Album: Oops! All Jameos! Vol. 1</h3>
+                    <div class="audio-player">
+                        <audio id="audioPlayerAlbum" controls>
+                            <source id="audioSourceAlbum" src="Life.wav" type="audio/mpeg">
+                            Sorry, your browser does not support audio playback.
+                        </audio>
+                        <div>
+                            <button id="prevTrack" class="btn btn-secondary">Previous</button>
+                            <button id="nextTrack" class="btn btn-secondary">Next</button>
+                        </div>
+                        <div id="currentTrackTitleAlbum" class="mt-2"></div>
+                    </div>
+                    <ul id="playlist" class="mt-4"></ul>
+                    <h6 class="text-center mt-3">Click the three dots on the right of the player to download tracks.</h6>
                 </div>
+                <!-- Single -->
+                <div class="music-section">
+                    <h3>Single</h3>
+                    <div class="audio-player">
+                        <audio id="audioPlayerSingle" controls>
+                            <source id="audioSourceSingle" src="fractal resonance 2.mp3" type="audio/mpeg">
+                            Sorry, your browser does not support audio playback.
+                        </audio>
+                        <div id="currentTrackTitleSingle" class="mt-2">Now Playing: Fractal Resonance 2</div>
+                    </div>
+                </div>
+                
             </section>
+            <div class="iframe-container">
+                <iframe src="https://distrokid.com/hyperfollow/nathanclark/oops-all-jameos-vol-1" frameborder="0"></iframe>
+            </div>
             <section id="twitch-stream" class="container mt-4">
                 <h2>Live Stream</h2>
-                <p>Watch my live performances and sessions here on Twitch, and chat with me!</p>
+                <p>Watch my live performances and sessions here on Twitch, and chat with me!</p></audio>
             
                 <!-- Twitch Stream Embed -->
                 <div class="twitch-container">
@@ -144,7 +175,16 @@
             
             <section id="blog" class="container mt-4">
                 <h2>Blog</h2>
-                <p>Stay tuned for updates on my music journey and more.</p>
+                <p>2/2/2025
+                    <br>Check out my new album "Oops! All Jameos! Vol. 1" on the music page!
+                    <br>I have been having fun doing simple recordings of me playing drums, bass, and guitar one at a time, one man band as they say.
+                    This new album is a recording of me having fun doing that and seeing creative sparks fly. I know there are plenty of "mistakes" in the recording that may piss some people off or give haters fuel but oh well.
+                    <br><br>I have always wanted to capture that live feel of a band playing in a room together, and I think this is a good way to do it.
+                    The later tracks are ones that I made at first just fiddling around but I realized that the trio type sound fits what I am going for.
+                    It is also much easier to mix and record with just drums bass and guitar, I think adding things like keys and synths muddle what I am trying to do. Too many choices and I get into an identity crisis.
+                    <br><br>It has always been hard to get likeminded musicians to cooperate with each other, this one man band thing has been a development of my frustration with that.
+                    The drums are me playing them on a keyboard, I have a midi keyboard that I use to write music with and I have been getting better at it. I still don't know what the hell I am doing as a drummer.
+                </p>
             </section>
             <!-- This section represents a virtual keyboard for musical notes -->
             <div id="keyboard">
