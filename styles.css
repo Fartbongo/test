@@ -404,3 +404,17 @@ nav.navbar {
     margin-top: 10px;
     text-align: center;
 }
+
+.btn-gradient {
+    background: linear-gradient(45deg, #ff00cc, #333399);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background 0.3s ease;
+}
+btn-gradient:hover {
+    background: linear-gradient(45deg, #333399, #ff00cc);
+}
