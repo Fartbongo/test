@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://ajax.googleapis.com https://stackpath.bootstrapcdn.com; style-src 'self' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com; font-src https://fonts.gstatic.com; frame-src https://player.twitch.tv https://www.twitch.tv;">
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://ajax.googleapis.com https://stackpath.bootstrapcdn.com https://cdn.jsdelivr.net 'unsafe-inline';
+    style-src 'self' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com 'unsafe-inline';
+    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+    img-src 'self' data:;
+    frame-src https://player.twitch.tv https://www.twitch.tv https://embed.twitch.tv;">
     <title>Nathan Clarke Music</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -115,29 +121,29 @@
             
             <section id="twitch-stream" class="container mt-4">
                 <h2>Live Stream</h2>
-                <p>Watch my live performances and sessions here on Twitch, and chat with me!</p></audio>
-            
+                <p>Watch my live performances and sessions here on Twitch, and chat with me!</p>
+
                 <!-- Twitch Stream Embed -->
                 <div class="twitch-container">
                     <div class="twitch-stream">
                         <iframe
-                            src="https://player.twitch.tv/?channel=fartbongo&parent=fartbongo.github.io/test/"
+                            src="https://player.twitch.tv/?channel=fartbongo&parent=fartbongo.github.io"
                             frameborder="0"
                             allowfullscreen="true"
                             scrolling="no"
                             height="100%"
                             width="100%"
-                            sandbox="allow-scripts allow-same-origin allow-popups">
+                            title="Twitch Live Stream">
                         </iframe>
                     </div>
                     <div class="twitch-chat">
                         <iframe
-                            src="https://www.twitch.tv/embed/fartbongo/chat?parent=fartbongo.github.io/test/"
+                            src="https://www.twitch.tv/embed/fartbongo/chat?parent=fartbongo.github.io"
                             frameborder="0"
                             scrolling="no"
                             height="100%"
                             width="100%"
-                            sandbox="allow-scripts">
+                            title="Twitch Chat">
                         </iframe>
                     </div>
                 </div>
@@ -154,7 +160,7 @@
                             <img src="IMG_2.JPG" class="d-block w-100 rounded-circle d-flex justify-content-center" alt="Nate jamming at bowery electric">
                         </div>
                         <div class="carousel-item">
-                            <img src="IMG_3.png" class="d-block w-100" alt="Nate jamming at bryac" style="background-color: gray; object-fit: contain;">
+                            <img src="IMG_3.png" class="d-block w-100" alt="Nate jamming at bryac">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#photoCarousel" role="button" data-slide="prev">
@@ -193,7 +199,7 @@
             <div id="keyboard">
                 <h2>Synthesizer</h2>
                 <p>Click on the keys to play notes. Use the controls to change the waveform and attack.</p>
-                <div class="keys" style="display: flex;">
+                <div class="keys" id="keys">
                     <div class="key" data-note="C4">C</div>
                     <div class="key" data-note="D4">D</div>
                     <div class="key" data-note="E4">E</div>
@@ -241,12 +247,9 @@
 <footer class="container mt-5 text-center">
     <p>Follow me on social media:</p>
     <a href="https://www.instagram.com/thenateclark" target="_blank">
-        <i class="fab fa-instagram" style="font-size: 30px;"></i> Instagram
+        <i class="fab fa-instagram"></i> Instagram
     </a>
-</footer>
-<script> 
-    
-</script>    
+</footer>   
 <script src="script.js"></script>
 </body>
 </html>

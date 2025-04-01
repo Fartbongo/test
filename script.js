@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
         audioSourceAlbum.src = playlist[index].src;
         currentTrackTitleAlbum.textContent = `Now Playing: ${playlist[index].title}`;
         audioPlayerAlbum.load();
-        audioPlayerAlbum.play();
         updatePlaylistHighlight();
     }
 

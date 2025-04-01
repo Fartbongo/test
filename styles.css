@@ -289,26 +289,32 @@ nav.navbar {
 }
 .twitch-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row; /* Place stream and chat side by side */
+    justify-content: space-between;
+    gap: 20px; /* Add spacing between the stream and chat */
     margin-top: 20px;
 }
 
+/* Stream and chat styling */
 .twitch-stream, .twitch-chat {
-    width: 100%;
-    max-width: 800px;
-    height: 400px;
+    flex: 1; /* Make both stream and chat take equal space */
+    height: 500px; /* Set a fixed height */
+    max-width: 48%; /* Limit the width to 48% of the container */
+    border: 1px solid #444; /* Optional: Add a border for better visibility */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    overflow: hidden; /* Ensure content doesn't overflow */
 }
 
-@media (min-width: 768px) {
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
     .twitch-container {
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column; /* Stack stream and chat vertically */
+        align-items: center; /* Center the content */
     }
 
     .twitch-stream, .twitch-chat {
-        width: 48%;
-        height: 500px;
+        width: 100%; /* Make them full width */
+        height: 400px; /* Adjust height for smaller screens */
     }
 }
 .keyboard {
@@ -482,4 +488,25 @@ btn-gradient:hover {
         width: 70vw; /* Further increase size for very small screens */
         height: 70vw; /* Match height to width for a perfect circle */
     }
+}
+
+.iframe-container {
+    margin: 20px 0;
+    padding: 15px;
+}
+
+.iframe-container a {
+    color: #9b5de5; /* Matches your purple theme */
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    padding: 10px 20px;
+    border: 2px solid #9b5de5;
+    border-radius: 5px;
+}
+
+.iframe-container a:hover {
+    color: #ffffff;
+    background-color: #9b5de5;
 }
