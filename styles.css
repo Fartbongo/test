@@ -136,10 +136,14 @@ nav.navbar {
 }
 
 .circular-image {
-    border-radius: 50%;
-    width: 700px; /* Adjust the size as needed */
-    height: 700px; /* Adjust the size as needed */
-    object-fit: cover;
+    width: 200px; /* Adjust the size as needed */
+    height: 200px; /* Ensure it's a perfect circle */
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+    object-position: center; /* Centers the image within the circle */
+    display: block;
+    margin: 0 auto; /* Centers the image horizontally */
+    border: 3px solid #007bff; /* Optional: Add a border for styling */
 }
 
 .rounded-title h1 {
