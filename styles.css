@@ -13,6 +13,8 @@ body {
 
 .content {
     flex-grow: 1; /* Ensures the content takes up available space */
+    margin-left: 60px; /* Add space to the left to accommodate the sidebar */
+    padding: 20px;
 }
 
 footer {
@@ -130,23 +132,24 @@ nav.navbar {
 
 .centered-image {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Optional, for centering the image vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align the image closer to the top */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove any default margin */
+    position: relative; /* Ensure proper positioning */
 }
 
 .circular-image {
-    width: 800px; /* Increase the size */
-    height: 800px; /* Ensure it's a perfect circle */
-    border-radius: 100%; /* Make it circular */
-    object-fit: contain; /* Ensures the whole image fits within the circle */
-    object-position: center; /* Centers the image within the circle */
+    width: 30vw; /* Responsive width: 30% of the viewport width */
+    height: 30vw; /* Match height to width for a perfect circle */
+    max-width: 1000px; /* Set a maximum size for larger screens */
+    max-height: 1000px; /* Match max height to max width */
+    border-radius: 50%; /* Make it circular */
+    object-fit: contain; /* Ensure the entire image fits within the circle */
+    object-position: center; /* Center the image within the circle */
     display: block;
-    animation: spin 10s linear infinite;
-    transform-origin: center;
-    margin: 0 auto; /* Centers the image horizontally */
-    border: 5px solid rgb(160, 36, 160); /* Purple border */
-    background-color: rgb(32, 32, 32); /* Fill the gaps with gray */
+    border: 5px solid purple; /* Add a purple border */
+    background-color: rgb(27, 27, 27); /* Fill any empty space with gray */
 }
 
 .rounded-title h1 {
@@ -169,7 +172,7 @@ nav.navbar {
     width: 200px;
     height: 700px;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: center;
     margin: auto;
     display: block;
     transform: scale(0.8);
@@ -197,7 +200,10 @@ nav.navbar {
 
 /* Sidebar styling */
 .sidebar {
-    width: 10%; /* Adjust the width as needed */
+    position: relative;
+    width: 40px; /* Adjust width to fit the lines */
+    height: 100vh; /* Full viewport height */
+    background-color: transparent; /* No background color */
     display: flex;
     flex-direction: column;
     align-items: flex-end; /* Align the vertical lines to the right side */
@@ -213,11 +219,13 @@ nav.navbar {
 
 /* Vertical line styling */
 .vertical-line {
-    width: 2px; /* Initial width of the line */
-    height: 100vh; /* Full height of the viewport */
-    background: linear-gradient(to bottom, #9b5de5, #f15bb5);
-    margin-bottom: 20px; /* Space between the two lines */
-    position: relative;
+    width: 4px; /* Thickness of the line */
+    height: 100%; /* Full height of the container */
+    background-color: #6c757d; /* Neutral gray color */
+    position: absolute;
+    left: 20px; /* Distance from the left edge */
+    top: 0;
+    z-index: 1; /* Ensure it stays behind other elements */
 }
 
 /* Tapering off the line */
@@ -233,10 +241,13 @@ nav.navbar {
 
 /* Styling for the second, darker vertical line */
 .vertical-line-darker {
-    width: 2px; /* Initial width of the line */
-    height: 100vh; /* Full height of the viewport */
-    background: linear-gradient(to bottom, #6b2cb2, #b04891); /* Darker gradient */
-    position: relative;
+    width: 2px; /* Slightly thinner line */
+    height: 100%; /* Full height of the container */
+    background-color: #343a40; /* Darker gray color */
+    position: absolute;
+    left: 24px; /* Slightly offset from the lighter line */
+    top: 0;
+    z-index: 1; /* Ensure it stays behind other elements */
 }
 
 /* Tapering off the darker line */
@@ -449,4 +460,12 @@ btn-gradient:hover {
 
 .key:active {
     background-color: lightgray; /* Change color when pressed */
+}
+
+
+.circular-header {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    background-color: transparent; /* Remove the purple background */
 }
