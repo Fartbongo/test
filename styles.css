@@ -140,7 +140,7 @@ nav.navbar {
 }
 
 .circular-image {
-    width: 30vw; /* Responsive width: 30% of the viewport width */
+    width: 30vw; /* Default responsive width: 30% of the viewport width */
     height: 30vw; /* Match height to width for a perfect circle */
     max-width: 1000px; /* Set a maximum size for larger screens */
     max-height: 1000px; /* Match max height to max width */
@@ -148,8 +148,8 @@ nav.navbar {
     object-fit: contain; /* Ensure the entire image fits within the circle */
     object-position: center; /* Center the image within the circle */
     display: block;
-    border: 5px solid purple; /* Add a purple border */
-    background-color: rgb(27, 27, 27); /* Fill any empty space with gray */
+    border: 5px solid rgb(151, 21, 151); /* Add a purple border */
+    background-color: rgb(29, 28, 28); /* Fill any empty space with gray */
 }
 
 .rounded-title h1 {
@@ -462,10 +462,24 @@ btn-gradient:hover {
     background-color: lightgray; /* Change color when pressed */
 }
 
-
 .circular-header {
     display: flex;
     justify-content: center; /* Center the image horizontally */
     align-items: center; /* Center the image vertically */
     background-color: transparent; /* Remove the purple background */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .circular-image {
+        width: 50vw; /* Increase the size to 50% of the viewport width */
+        height: 50vw; /* Match height to width for a perfect circle */
+    }
+}
+
+@media (max-width: 480px) {
+    .circular-image {
+        width: 70vw; /* Further increase size for very small screens */
+        height: 70vw; /* Match height to width for a perfect circle */
+    }
 }
