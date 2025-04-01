@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://ajax.googleapis.com https://stackpath.bootstrapcdn.com; style-src 'self' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com; font-src https://fonts.gstatic.com; frame-src https://player.twitch.tv https://www.twitch.tv;">
     <title>Nathan Clarke Music</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -107,7 +108,7 @@
                 
             </section>
             <div class="iframe-container text-center mt-4">
-                <a href="https://distrokid.com/hyperfollow/nathanclark/oops-all-jameos-vol-1" target="_blank" title="Nathan Clark Music Album" class="btn btn-lg btn-gradient">
+                <a href="https://distrokid.com/hyperfollow/nathanclark/oops-all-jameos-vol-1" target="_blank" rel="noopener noreferrer">
                     Listen to the album on streaming services
                 </a>
             </div>
@@ -125,7 +126,8 @@
                             allowfullscreen="true"
                             scrolling="no"
                             height="100%"
-                            width="100%">
+                            width="100%"
+                            sandbox="allow-scripts allow-same-origin allow-popups">
                         </iframe>
                     </div>
                     <div class="twitch-chat">
@@ -134,7 +136,8 @@
                             frameborder="0"
                             scrolling="no"
                             height="100%"
-                            width="100%">
+                            width="100%"
+                            sandbox="allow-scripts allow-same-origin allow-popups">
                         </iframe>
                     </div>
                 </div>
@@ -230,6 +233,7 @@
                         <label for="message">Message</label>
                         <textarea class="form-control" id="message" name="message" rows="3" placeholder="Your Message"></textarea>
                     </div>
+                    <input type="text" name="_gotcha" style="display:none">
                     <button type="submit" class="btn btn-primary">Send</button>
                 </form>
             </section>
@@ -242,11 +246,7 @@
     </a>
 </footer>
 <script> 
-    $(document).ready(function () { 
-        $('.navbar-nav>li>a').on('click', function () {
-            $('.navbar-collapse').collapse('hide'); 
-        }); 
-    }); 
+    
 </script>    
 <script src="script.js"></script>
 </body>

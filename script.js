@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // jQuery code
     $('.navbar-nav>li>a').on('click', function () {
-        $('.navbar-collapse').collapse('hide'); 
+        $('.navbar-collapse').collapse('hide'); // Collapse the navbar menu after clicking on a menu item
     });
 
     // Plain JavaScript code

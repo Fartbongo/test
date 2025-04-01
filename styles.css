@@ -425,3 +425,28 @@ nav.navbar {
 btn-gradient:hover {
     background: linear-gradient(45deg, #333399, #ff00cc);
 }
+
+.keys {
+    display: flex; /* Arrange the keys horizontally */
+    justify-content: center; /* Center the keys horizontally */
+    gap: 5px; /* Add spacing between the keys */
+    margin-top: 20px; /* Add some space above the keys */
+}
+
+.key {
+    width: 50px; /* Set the width of each key */
+    height: 150px; /* Set the height of each key */
+    background-color: white; /* White keys */
+    border: 1px solid black; /* Add a border to each key */
+    border-radius: 5px; /* Optional: Slightly round the corners */
+    text-align: center; /* Center the text inside the key */
+    line-height: 150px; /* Vertically center the text */
+    font-weight: bold; /* Make the text bold */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    user-select: none; /* Prevent text selection on click */
+}
+
+.key:active {
+    background-color: lightgray; /* Change color when pressed */
+}
