@@ -4,23 +4,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self' https://ajax.googleapis.com https://stackpath.bootstrapcdn.com https://cdn.jsdelivr.net 'unsafe-inline';
-    style-src 'self' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com 'unsafe-inline';
-    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-    img-src 'self' data:;
-    frame-src https://player.twitch.tv https://www.twitch.tv https://embed.twitch.tv;">
+        default-src 'none';
+        script-src 'self' 'nonce-random123' https://ajax.googleapis.com https://stackpath.bootstrapcdn.com https://cdn.jsdelivr.net https://player.twitch.tv;
+        style-src 'self' 'nonce-random123' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com;
+        img-src 'self' data: https://*.twitch.tv;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        media-src 'self';
+        connect-src 'self' https://player.twitch.tv https://www.twitch.tv;
+        frame-src https://player.twitch.tv https://www.twitch.tv https://embed.twitch.tv;
+        base-uri 'self';
+        form-action 'self' https://formspree.io;">
     <title>Nathan Clarke Music</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="styles.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="#">Nathan Clarke Music</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,37 +31,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#music">Music</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#twitch-stream">Live Stream</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#gallery">Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#press">Press and Reviews</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#blog">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#keyboard">Synthesizer</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
+                <li class="nav-item active"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#music">Music</a></li>
+                <li class="nav-item"><a class="nav-link" href="#twitch-stream">Live Stream</a></li>
+                <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="#press">Press and Reviews</a></li>
+                <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="#keyboard">Synthesizer</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
-    
+
     <div class="container main-container">
         <div class="sidebar">
             <div class="vertical-line"></div>
@@ -66,23 +51,21 @@
         </div>
         <div class="content">
 
-            
             <!-- Circular Image Section (Responsive) -->
             <section class="centered-image mt-4 text-center">
                 <img src="IMG_3.png" alt="Circular Image" class="circular-image img-fluid rounded-circle">
             </section>
 
+            <!-- About Section -->
             <section id="about" class="container mt-4">
                 <h2>About Me</h2>
                 <p>A passionate bassist, Nathan Clark brings a unique blend of rhythm and melody to every performance. With a rich career that spans twenty years, Nathan has played with numerous bands and artists, crafting a distinctive sound that resonates with audiences. Known for his dynamic performances in numerous venues across New York City, Nathan continues to push the boundaries of musical expression.</p>
             </section>
-            <!-- add in music player-->
+
+            <!-- Music Section -->
             <section id="music" class="container mt-4">
                 <h2>Music</h2>
                 <p>Listen to my latest tracks and albums here.</p>
-                
-                
-                <!-- Album -->
                 <div class="music-section">
                     <img src="oops.jpg" alt="Oops! All Jameos! Vol. 1" class="img-fluid mt-3">
                     <h3>Album: Oops! All Jameos! Vol. 1</h3>
@@ -111,29 +94,28 @@
                         <div id="currentTrackTitleSingle" class="mt-2">Now Playing: Fractal Resonance 2</div>
                     </div>
                 </div>
-                
             </section>
             <div class="iframe-container text-center mt-4">
                 <a href="https://distrokid.com/hyperfollow/nathanclark/oops-all-jameos-vol-1" target="_blank" rel="noopener noreferrer">
                     Listen to the album on streaming services
                 </a>
             </div>
-            
+
+            <!-- Twitch Stream Section -->
             <section id="twitch-stream" class="container mt-4">
                 <h2>Live Stream</h2>
                 <p>Watch my live performances and sessions here on Twitch, and chat with me!</p>
-
                 <!-- Twitch Stream Embed -->
                 <div class="twitch-container">
                     <div class="twitch-stream">
                         <iframe
                             src="https://player.twitch.tv/?channel=fartbongo&parent=fartbongo.github.io"
                             frameborder="0"
-                            allowfullscreen="true"
                             scrolling="no"
                             height="100%"
                             width="100%"
-                            title="Twitch Live Stream">
+                            title="Twitch Live Stream"
+                            allowfullscreen>
                         </iframe>
                     </div>
                     <div class="twitch-chat">
@@ -149,6 +131,7 @@
                 </div>
             </section>
             
+            <!-- Gallery Section -->
             <section id="gallery" class="container mt-4">
                 <h2>Gallery</h2>
                 <div id="photoCarousel" class="carousel slide" data-ride="carousel">
@@ -174,14 +157,15 @@
                 </div>
             </section>
             
+            <!-- Press Section -->
             <section id="press" class="container mt-4">
                 <h2>Press and Reviews</h2>
-                <p>Billy Martin remarked on Nathan Clark's exceptional bass playing, saying, 'You're a good bass player.' Nathan is featured on Billy Martin's "Meshes" album. <br><br>
+                <p>Billy Martin remarked on Nathan Clark's exceptional bass playing, saying, 'You're a good bass player.' Nathan is featured on Billy Martin's "Meshes" album. <br><br> 
                 Brian Haas praised Nathan Clark's musical talent, expressing his admiration by stating, 'wow, beautiful, otherworldly, sparkly magic' <br><br>
-                Featured on The Moderns radio show.
                 </p>
             </section>
             
+            <!-- Blog Section -->
             <section id="blog" class="container mt-4">
                 <h2>Blog</h2>
                 <p>2/2/2025
@@ -195,7 +179,8 @@
                     The drums are me playing them on a keyboard, I have a midi keyboard that I use to write music with and I have been getting better at it. I still don't know what the hell I am doing as a drummer.
                 </p>
             </section>
-            <!-- This section represents a virtual keyboard for musical notes -->
+
+            <!-- Synthesizer Section -->
             <div id="keyboard">
                 <h2>Synthesizer</h2>
                 <p>Click on the keys to play notes. Use the controls to change the waveform and attack.</p>
@@ -224,6 +209,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Contact Section -->
             <section id="contact" class="container mt-4">
                 <h2>Contact Me</h2>
                 <form action="https://formspree.io/f/xqakewvz" method="POST">
@@ -244,12 +231,15 @@
             </section>
         </div>
     </div>
-<footer class="container mt-5 text-center">
-    <p>Follow me on social media:</p>
-    <a href="https://www.instagram.com/thenateclark" target="_blank">
-        <i class="fab fa-instagram"></i> Instagram
-    </a>
-</footer>   
-<script src="script.js"></script>
+
+    <footer class="container mt-5 text-center">
+        <p>Follow me on social media:</p>
+        <a href="https://www.instagram.com/thenateclark" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+    </footer>
+
+    <script nonce="random123" src="script.js"></script>
 </body>
 </html>
+

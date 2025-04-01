@@ -293,6 +293,8 @@ nav.navbar {
     justify-content: space-between;
     gap: 20px; /* Add spacing between the stream and chat */
     margin-top: 20px;
+    position: relative; /* Add this */
+    z-index: 1; /* Add this */
 }
 
 /* Stream and chat styling */
@@ -303,6 +305,8 @@ nav.navbar {
     border: 1px solid #444; /* Optional: Add a border for better visibility */
     border-radius: 8px; /* Optional: Add rounded corners */
     overflow: hidden; /* Ensure content doesn't overflow */
+    position: relative; /* Add this */
+    z-index: 2; /* Add this */
 }
 
 /* Responsive layout for smaller screens */

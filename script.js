@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Page loaded');
     // jQuery code
     $('.navbar-nav>li>a').on('click', function () {
         $('.navbar-collapse').collapse('hide'); // Collapse the navbar menu after clicking on a menu item
@@ -116,4 +117,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     loadTrack(currentTrackIndex);
+
+    // Add event listeners for carousel controls
+    const carousel = document.getElementById('photoCarousel');
+    if (carousel) {
+        const prevButton = carousel.querySelector('.carousel-control-prev');
+        const nextButton = carousel.querySelector('.carousel-control-next');
+        
+        prevButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Your carousel previous logic
+        });
+        
+        nextButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Your carousel next logic
+        });
+    }
 });
