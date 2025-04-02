@@ -64,6 +64,7 @@ section {
 
 p {
     font-size: 1.25rem; /* Adjust font size for paragraphs */
+    margin-bottom: 1.5rem; /* Add spacing between paragraphs */
 }
 
 .btn-primary {
@@ -138,10 +139,10 @@ nav.navbar {
     justify-content: center; /* Center content vertically */
     background: linear-gradient(to right, #9b5de5, #f15bb5); /* Gradient background */
     color: #fff; /* White text for contrast */
-    padding: 50px 20px; /* Add padding for spacing */
+    padding: 20px 15px; /* Reduce padding to make the box smaller */
     border-radius: 15px; /* Rounded corners for the section */
-    max-width: 800px; /* Limit the width of the section */
-    margin: 50px auto; /* Center the section horizontally and add vertical spacing */
+    max-width: 450px; /* Reduce the maximum width of the box */
+    margin: 30px auto; /* Center the box and reduce vertical spacing */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
@@ -156,7 +157,10 @@ nav.navbar {
     max-width: 500px; /* Limit the maximum size */
     max-height: 500px; /* Limit the maximum size */
     border-radius: 50%; /* Make the image circular */
-    border: 6px solid #fff; /* Add a white border around the image */
+    border: 6px solid transparent; /* Make the border transparent */
+    background: linear-gradient(45deg, #9b5de5, #f15bb5); /* Gradient border */
+    background-clip: padding-box; /* Clip the gradient to the border */
+    padding: 5px; /* Add padding to create the border effect */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
     object-fit: fill; /* Ensure the image fits properly */
 }
@@ -413,6 +417,7 @@ nav.navbar {
 #playlist li {
     padding: 5px;
     cursor: pointer;
+    margin-bottom: 0.5rem; /* Add spacing between list items */
 }
 
 #playlist li.active {
@@ -519,6 +524,7 @@ btn-gradient:hover {
     .circular-image {
         width: 50vw; /* Increase the size to 50% of the viewport width */
         height: 50vw; /* Match height to width for a perfect circle */
+        border-color: purple; /* Change border color to purple */
     }
 }
 
@@ -546,6 +552,56 @@ btn-gradient:hover {
 }
 
 .iframe-container a:hover {
-    color: #ffffff;
+    color: #a93eb8;
     background-color: #9b5de5;
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif; /* Use Poppins for headings */
+    font-weight: 700; /* Make headings bold */
+    color: #ffffff; /* White text for contrast */
+    margin-bottom: 1rem; /* Add spacing below headings */
+}
+
+h1 {
+    font-size: 3rem; /* Large size for main headings */
+}
+
+h2 {
+    font-size: 2.5rem; /* Slightly smaller for subheadings */
+}
+
+h3 {
+    font-size: 2rem; /* Smaller for section titles */
+}
+
+/* Body Text */
+body, p, li {
+    font-family: 'Roboto', sans-serif; /* Use Roboto for body text */
+    font-weight: 400; /* Regular weight for readability */
+    font-size: 1.1rem; /* Slightly larger font size for better readability */
+    line-height: 1.6; /* Add line height for better spacing */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Links */
+a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500; /* Slightly bold for emphasis */
+    color: #9b5de5; /* Match your purple theme */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #f15bb5; /* Change color on hover */
+}
+
+/* Buttons */
+.btn-primary {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* Bold text for buttons */
+    text-transform: uppercase; /* Make button text uppercase */
+    font-size: 1rem; /* Adjust font size */
 }
