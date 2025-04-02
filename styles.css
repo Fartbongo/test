@@ -33,8 +33,16 @@ nav {
 header {
     text-align: center;
     padding: 2rem 0;
-    background: linear-gradient(135deg, #9b5de5, #f15bb5); /* Updated to purple gradient */
+    background: linear-gradient(135deg, #9b5de5, #f15bb5); /* Purple gradient background */
     color: #ffffff;
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Use flexbox for centering content */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    border-radius: 50px; /* Add rounded corners to the entire header */
+    margin: 20px; /* Add margin to prevent the edges from touching the screen */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
 }
 
 header#home {
@@ -139,11 +147,11 @@ nav.navbar {
     justify-content: center; /* Center content vertically */
     background: linear-gradient(to right, #9b5de5, #f15bb5); /* Gradient background */
     color: #fff; /* White text for contrast */
-    padding: 20px 15px; /* Reduce padding to make the box smaller */
-    border-radius: 15px; /* Rounded corners for the section */
-    max-width: 450px; /* Reduce the maximum width of the box */
-    margin: 30px auto; /* Center the box and reduce vertical spacing */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    height: 100vh; /* Make it fill the full viewport height */
+    padding: 0 15px; /* Adjust padding to avoid extra spacing */
+    border-radius: 0; /* Remove rounded corners for a full-screen look */
+    margin: 0; /* Remove margins to ensure it fills the screen */
+    box-shadow: none; /* Remove shadow for a cleaner look */
 }
 
 .centered-image .image-container {
@@ -258,46 +266,52 @@ nav.navbar {
 
 /* Vertical line styling */
 .vertical-line {
-    width: 4px; /* Thickness of the line */
-    height: 100%; /* Full height of the container */
-    background-color: #6c757d; /* Neutral gray color */
+    width: 3px; /* Slightly thinner line for a sleeker look */
+    height: 107.5vh; /* Full height of the circular header */
+    background: linear-gradient(to bottom, #9b5de5, #f15bb5); /* Gradient for a modern look */
     position: absolute;
     left: 20px; /* Distance from the left edge */
     top: 0;
     z-index: 1; /* Ensure it stays behind other elements */
+    border-radius: 2px; /* Add rounded edges for a softer appearance */
 }
 
-/* Tapering off the line */
-.vertical-line::before {
+/* Subtle glow effect */
+.vertical-line::after {
     content: '';
     position: absolute;
-    left: -2px; /* Adjust as needed to position the taper effect */
+    left: -5px; /* Adjust for glow positioning */
     top: 0;
-    width: 6px; /* Start width for the taper effect */
-    height: 100vh;
-    background: linear-gradient(to bottom, rgba(155, 93, 229, 0), rgba(241, 91, 181, 1)); /* Gradient for the taper effect */
+    width: 13px; /* Glow width */
+    height: 100%; /* Match the height of the circular header */
+    background: radial-gradient(circle, rgba(155, 93, 229, 0.3), rgba(241, 91, 181, 0));
+    z-index: -1; /* Place the glow behind the line */
+    border-radius: 50%; /* Smooth glow edges */
 }
 
 /* Styling for the second, darker vertical line */
 .vertical-line-darker {
     width: 2px; /* Slightly thinner line */
-    height: 100%; /* Full height of the container */
-    background-color: #343a40; /* Darker gray color */
+    height: 107.5vh; /* Full height of the circular header */
+    background: linear-gradient(to bottom, #6c44a0, #b04891); /* Darker gradient for contrast */
     position: absolute;
-    left: 24px; /* Slightly offset from the lighter line */
+    left: 26px; /* Slightly offset from the lighter line */
     top: 0;
     z-index: 1; /* Ensure it stays behind other elements */
+    border-radius: 2px; /* Add rounded edges for consistency */
 }
 
-/* Tapering off the darker line */
-.vertical-line-darker::before {
+/* Subtle glow effect for the darker line */
+.vertical-line-darker::after {
     content: '';
     position: absolute;
-    left: -2px; /* Adjust as needed to position the taper effect */
+    left: -5px; /* Adjust for glow positioning */
     top: 0;
-    width: 6px; /* Start width for the taper effect */
-    height: 100vh;
-    background: linear-gradient(to bottom, rgba(107, 44, 178, 0), rgba(176, 72, 145, 1)); /* Gradient for the taper effect */
+    width: 12px; /* Glow width */
+    height: 100%; /* Match the height of the circular header */
+    background: radial-gradient(circle, rgba(107, 44, 178, 0.3), rgba(176, 72, 145, 0));
+    z-index: -1; /* Place the glow behind the line */
+    border-radius: 50%; /* Smooth glow edges */
 }
 
 /* Media Queries for Responsiveness */
