@@ -118,20 +118,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadTrack(currentTrackIndex);
 
-    // Add event listeners for carousel controls
-    const carousel = document.getElementById('photoCarousel');
-    if (carousel) {
-        const prevButton = carousel.querySelector('.carousel-control-prev');
-        const nextButton = carousel.querySelector('.carousel-control-next');
-        
+    // Initialize the Bootstrap carousel
+    const photoCarousel = document.getElementById('photoCarousel');
+    if (photoCarousel) {
+        const carousel = new bootstrap.Carousel(photoCarousel, {
+            interval: 3000, // Auto-slide every 3 seconds
+            wrap: true, // Loop back to the first slide
+            pause: 'hover' // Pause on hover
+        });
+
+        // Optional: Add event listeners for custom controls
+        const prevButton = photoCarousel.querySelector('.carousel-control-prev');
+        const nextButton = photoCarousel.querySelector('.carousel-control-next');
+
         prevButton.addEventListener('click', (e) => {
             e.preventDefault();
-            // Your carousel previous logic
+            carousel.prev(); // Go to the previous slide
         });
-        
+
         nextButton.addEventListener('click', (e) => {
             e.preventDefault();
-            // Your carousel next logic
+            carousel.next(); // Go to the next slide
         });
     }
 });

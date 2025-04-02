@@ -130,26 +130,49 @@ nav.navbar {
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/></svg>');
 }
 
+/* Centered Image Section */
 .centered-image {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: flex-start; /* Align the image closer to the top */
-    height: 100vh; /* Full viewport height */
-    margin: 0; /* Remove any default margin */
-    position: relative; /* Ensure proper positioning */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    background: linear-gradient(to right, #9b5de5, #f15bb5); /* Gradient background */
+    color: #fff; /* White text for contrast */
+    padding: 50px 20px; /* Add padding for spacing */
+    border-radius: 15px; /* Rounded corners for the section */
+    max-width: 800px; /* Limit the width of the section */
+    margin: 50px auto; /* Center the section horizontally and add vertical spacing */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
+.centered-image .image-container {
+    text-align: center; /* Center the content */
+}
+
+/* Circular Image Styling */
 .circular-image {
-    width: 30vw; /* Default responsive width: 30% of the viewport width */
-    height: 30vw; /* Match height to width for a perfect circle */
-    max-width: 1000px; /* Set a maximum size for larger screens */
-    max-height: 1000px; /* Match max height to max width */
-    border-radius: 50%; /* Make it circular */
-    object-fit: contain; /* Ensure the entire image fits within the circle */
-    object-position: center; /* Center the image within the circle */
-    display: block;
-    border: 5px solid rgb(151, 21, 151); /* Add a purple border */
-    background-color: rgb(29, 28, 28); /* Fill any empty space with gray */
+    width: 20vw; /* Set width to 20% of the viewport width for responsiveness */
+    height: 20vw; /* Match height to width for a perfect circle */
+    max-width: 500px; /* Limit the maximum size */
+    max-height: 500px; /* Limit the maximum size */
+    border-radius: 50%; /* Make the image circular */
+    border: 6px solid #fff; /* Add a white border around the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+    object-fit: fill; /* Ensure the image fits properly */
+}
+
+.centered-image h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem; /* Increase font size */
+    margin-top: 20px;
+}
+
+/* Caption Styling */
+.centered-image .image-caption {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem; /* Increase font size */
+    margin-top: 10px;
+    opacity: 0.9; /* Slightly faded text */
 }
 
 .rounded-title h1 {
@@ -166,27 +189,39 @@ nav.navbar {
 
 /* carousel */
 .carousel-item img {
-    object-position: 0 30%;
-    filter: grayscale(50%);
-    transition: transform 1s, filter 1s ease-in-out;
-    width: 200px;
-    height: 700px;
+    object-position: center; /* Center the image */
+    width: 25%;  
+    object-fit: contain; /* Maintain aspect ratio while fitting within the container */
+    max-width: 50%; /* Ensure the image doesn't exceed its container */
+    max-height: 50%; /* Ensure the image doesn't exceed its container */
+    object-fit: cover; /* Ensure the image covers the container without clipping */
+    margin: auto; /* Add larger padding on the top, bottom, left, and right */
+    display: block; /* Center the image in the carousel item */
+    border-radius: 50%; /* Make the image circular */
+}
+/* Apply circular styling to specific images */
+.carousel-item img.circular {
     border-radius: 50%;
-    object-fit: center;
-    margin: auto;
-    display: block;
-    transform: scale(0.8);
 }
 
-.carousel-item:hover img {
-    filter: grayscale(0%);
-    transform: scale(1.05);
+.carousel-item {
+    text-align: center; /* Center the content in the carousel item */
+    padding: 20px; /* Add padding around the carousel item */
+    background-color: #1a1a1a; /* Dark background for contrast */
+    border-radius: 15px; /* Rounded corners for the carousel item */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: #9b5de5; /* Updated to match purple gradient */
     border-radius: 50%;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: #f15bb5; /* Updated to match hover effect of purple gradient */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .carousel-indicators li {
