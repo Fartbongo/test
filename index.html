@@ -3,17 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'none';
-        script-src 'self' 'nonce-random123' https://ajax.googleapis.com https://stackpath.bootstrapcdn.com https://cdn.jsdelivr.net https://player.twitch.tv;
-        style-src 'self' 'nonce-random123' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com;
-        img-src 'self' data: https://*.twitch.tv;
-        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-        media-src 'self';
-        connect-src 'self' https://player.twitch.tv https://www.twitch.tv;
-        frame-src https://player.twitch.tv https://www.twitch.tv https://embed.twitch.tv;
-        base-uri 'self';
-        form-action 'self' https://formspree.io;">
     <title>Nathan Clark Music</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -39,6 +28,7 @@
                 <li class="nav-item"><a class="nav-link" href="#press">Press and Reviews</a></li>
                 <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
                 <li class="nav-item"><a class="nav-link" href="#keyboard">Synthesizer</a></li>
+                <li class="nav-item"><a class="nav-link" href="#game">Game</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -214,6 +204,14 @@
                 </div>
             </div>
 
+            <!-- Game Section -->
+            <section id="game" class="container mt-4">
+                <h2>Play My Game</h2>
+                <div id="app">
+                    <!-- Vue will mount here -->
+                </div>
+            </section>
+
             <!-- Contact Section -->
             <section id="contact" class="container mt-4">
                 <h2>Contact Me</h2>
@@ -246,7 +244,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script nonce="random123" src="script.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="script.js"></script>
+    <script src="vube.js"></script>
 </body>
 </html>
 
