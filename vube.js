@@ -143,15 +143,11 @@ const app = Vue.createApp({
                         const minutes = Math.floor(this.timer / 60);
                         const seconds = this.timer % 60;
                         const timeString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-                        alert(`Game Over!\nYou reached level ${this.level}\nTime survived: ${timeString}`);
+                        alert(`Game Over!\nYou reached level ${this.level}\nTime: ${timeString}`);
                         
-                        // Reset game
-                        this.player.health = 10;
-                        this.level = 1;
-                        this.player.pos = { x: 1, y: 1 };
-                        this.timer = 0;
-                        this.generateLevel();
-                        this.gameEnded = false;
+                        // Use the new reset function
+                        this.resetGame();
+                        return false; // Remove the enemy after combat
                     }
                     return false; // Remove the enemy after combat
                 }
@@ -284,6 +280,36 @@ const app = Vue.createApp({
             this.timerInterval = setInterval(() => {
                 this.timer++;
             }, 1000);
+        },
+        resetGame() {
+            // Reset player state
+            this.player.health = 10;
+            this.player.pos = { x: 1, y: 1 };
+            
+            // Reset game state
+            this.level = 1;
+            this.timer = 0;
+            this.gameEnded = false;
+            
+            // Clear existing entities
+            this.enemies = [];
+            this.health_blocks = [];
+            this.walls = [];
+            
+            // Generate new level
+            this.generateLevel();
+            
+            // Restart game loop
+            if (this.gameLoopId) {
+                cancelAnimationFrame(this.gameLoopId);
+            }
+            this.gameLoop();
+            
+            // Reset timer
+            if (this.timerInterval) {
+                clearInterval(this.timerInterval);
+            }
+            this.startTimer();
         }
     },
     template: `

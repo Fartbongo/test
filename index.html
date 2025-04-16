@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Nathan Clark Music</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -207,8 +207,21 @@
             <!-- Game Section -->
             <section id="game" class="container mt-4">
                 <h2>Play My Game</h2>
-                <div id="app">
-                    <!-- Vue will mount here -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-md-10 col-sm-12">
+                        <div class="game-instructions mb-3">
+                            <p>Use arrow keys or touch controls to move the white square.</p>
+                            <ul>
+                                <li>🟩 Green squares give +5 health</li>
+                                <li>🟥 Red squares are enemies (-2 health)</li>
+                                <li>⬜ Reach the yellow goal to advance levels</li>
+                                <li>⬛ Gray squares are walls</li>
+                            </ul>
+                        </div>
+                        <div id="app">
+                            <!-- Vue will mount here -->
+                        </div>
+                    </div>
                 </div>
             </section>
 

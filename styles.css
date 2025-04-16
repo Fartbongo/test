@@ -1,719 +1,543 @@
+/* Reset defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* Variables */
+:root {
+    --primary: #9b5de5;
+    --secondary: #f15bb5;
+    --dark: #1a1a1a;
+    --dark-accent: #2a2a2a;
+    --light: #ffffff;
+    --accent: #00f5d4;
+    --transition: all 0.3s ease;
+}
+
+/* Base styles */
 body {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
+    background-color: var(--dark);
+    color: var(--light);
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    padding-top: 20px; /* Adjust based on your nav bar height */
-    background-color: #1a1a1a;
-    font-size: 1rem; /* Base font size for the entire body */
-    height: 100%; /* Ensures the page takes up full height */
-    display: flex;
-    flex-direction: column; /* Stacks elements vertically */
 }
 
-.content {
-    flex-grow: 1; /* Ensures the content takes up available space */
-    margin-left: 60px; /* Add space to the left to accommodate the sidebar */
-    padding: 20px;
+/* Enhanced Navigation */
+.navbar {
+    background: rgba(26, 26, 26, 0.95);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-footer {
-    text-align: center;
-    padding: 1rem 0;
-    background-color: #121212;
-    color: #ffffff;
-    width: 100%;
-    /* Ensures it spans the full width of the page */
-}
-
-nav {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-header {
-    text-align: center;
-    padding: 2rem 0;
-    background: linear-gradient(135deg, #9b5de5, #f15bb5); /* Purple gradient background */
-    color: #ffffff;
-    height: 100vh; /* Full viewport height */
-    display: flex; /* Use flexbox for centering content */
-    flex-direction: column; /* Stack content vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    border-radius: 50px; /* Add rounded corners to the entire header */
-    margin: 20px; /* Add margin to prevent the edges from touching the screen */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
-}
-
-header#home {
-    padding-top: 80px; /* Extra padding for the home section */
-    margin-top: -80px; /* Same value as padding-top to offset the anchor jump */
-}
-
-h1, h2 {
-    font-family: 'Oswald', sans-serif;
-    margin-bottom: 1rem;
-}
-
-h1 {
-    font-size: 3rem; /* Adjust font size for h1 */
-}
-
-h2 {
-    font-size: 2.5rem; /* Adjust font size for h2 */
-}
-
-section {
-    padding: 2rem;
-    border-bottom: 1px solid #444444;
-    padding-top: 80px; /* Adjust based on your navbar height */
-    margin-top: -80px;
-}
-
-p {
-    font-size: 1.25rem; /* Adjust font size for paragraphs */
-    margin-bottom: 1.5rem; /* Add spacing between paragraphs */
-}
-
-.btn-primary {
-    background: #9b5de5; /* Updated to match purple gradient */
-    border: none;
-}
-
-.btn-primary:hover {
-    background: #f15bb5; /* Updated to match purple gradient */
-}
-
-.form-control {
-    background-color: #333333;
-    color: #ffffff;
-    border: 1px solid #555555;
-}
-
-.form-control::placeholder {
-    color: #888888;
-}
-
-/* title card */
-.rounded-title {
-    background-color: #333;
-    padding: 20px;
-    border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #ffffff;
-}
-
-.rounded-title h1 {
-    margin: 0;
-    font-size: 2.5rem; /* Adjust font size for title h1 */
-    color: #ffffff;
-}
-
-.rounded-title p {
-    margin-top: 10px;
-    color: #ffc99f;
-}
-
-/* Nav bar gradient background */
-nav.navbar {
-    background: linear-gradient(135deg, #9b5de5, #f15bb5); /* Updated to purple gradient */
-    position: -webkit-sticky;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-/* Link hover effect */
 .navbar-nav .nav-link {
-    color: #ffffff !important;
-    transition: color 0.3s;
+    color: var(--light) !important;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: var(--transition);
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background: var(--accent);
+    transition: var(--transition);
+    transform: translateX(-50%);
+    opacity: 0.8;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #9b5de5 !important; /* Updated to match purple gradient */
+    color: var(--accent) !important;
 }
 
-/* Toggler icon customization */
-.navbar-toggler-icon {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/></svg>');
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+    box-shadow: 0 0 10px var(--accent);
 }
 
-/* Centered Image Section */
-.centered-image {
-    display: flex; /* Use flexbox for centering */
-    flex-direction: column; /* Stack content vertically */
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-    background: linear-gradient(to right, #9b5de5, #f15bb5); /* Gradient background */
-    color: #fff; /* White text for contrast */
-    height: 100vh; /* Make it fill the full viewport height */
-    padding: 0 15px; /* Adjust padding to avoid extra spacing */
-    border-radius: 0; /* Remove rounded corners for a full-screen look */
-    margin: 0; /* Remove margins to ensure it fills the screen */
-    box-shadow: none; /* Remove shadow for a cleaner look */
-}
-
-.centered-image .image-container {
-    text-align: center; /* Center the content */
-}
-
-/* Circular Image Styling */
-.circular-image {
-    width: 20vw; /* Set width to 20% of the viewport width for responsiveness */
-    height: 20vw; /* Match height to width for a perfect circle */
-    max-width: 500px; /* Limit the maximum size */
-    max-height: 500px; /* Limit the maximum size */
-    border-radius: 50%; /* Make the image circular */
-    border: 6px solid transparent; /* Make the border transparent */
-    background: linear-gradient(45deg, #9b5de5, #f15bb5); /* Gradient border */
-    background-clip: padding-box; /* Clip the gradient to the border */
-    padding: 5px; /* Add padding to create the border effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
-    object-fit: fill; /* Ensure the image fits properly */
-}
-
-.centered-image h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2rem; /* Increase font size */
-    margin-top: 20px;
-}
-
-/* Caption Styling */
-.centered-image .image-caption {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.2rem; /* Increase font size */
-    margin-top: 10px;
-    opacity: 0.9; /* Slightly faded text */
-}
-
-.rounded-title h1 {
-    font-family: 'Poppins', cursive;
-    font-size: 2.5rem;
-    color: #ffffff;
-}
-
-.rounded-title p {
-    margin-top: 10px;
-    font-family: 'Roboto', sans-serif;
-    color: #ffe2cc;
-}
-
-/* carousel */
-.carousel-item img {
-    object-position: center; /* Center the image */
-    width: 25%;  
-    object-fit: contain; /* Maintain aspect ratio while fitting within the container */
-    max-width: 50%; /* Ensure the image doesn't exceed its container */
-    max-height: 50%; /* Ensure the image doesn't exceed its container */
-    object-fit: cover; /* Ensure the image covers the container without clipping */
-    margin: auto; /* Add larger padding on the top, bottom, left, and right */
-    display: block; /* Center the image in the carousel item */
-    border-radius: 50%; /* Make the image circular */
-}
-/* Apply circular styling to specific images */
-.carousel-item img.circular {
-    border-radius: 50%;
-}
-
-.carousel-item {
-    text-align: center; /* Center the content in the carousel item */
-    padding: 20px; /* Add padding around the carousel item */
-    background-color: #1a1a1a; /* Dark background for contrast */
-    border-radius: 15px; /* Rounded corners for the carousel item */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: #9b5de5; /* Updated to match purple gradient */
-    border-radius: 50%;
-}
-
-.carousel-control-prev-icon:hover,
-.carousel-control-next-icon:hover {
-    background-color: #f15bb5; /* Updated to match hover effect of purple gradient */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.carousel-indicators li {
-    background-color: #9b5de5; /* Updated to match purple gradient */
-}
-
-/* Container for main content and sidebar */
+/* Main Layout */
 .main-container {
-    display: flex;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 56px; /* Height of fixed navbar */
 }
 
-/* Sidebar styling */
-.sidebar {
-    position: relative;
-    width: 40px; /* Adjust width to fit the lines */
-    height: 100vh; /* Full viewport height */
-    background-color: transparent; /* No background color */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* Align the vertical lines to the right side */
-    padding: 20px;
-}
-
-/* Main content styling */
 .content {
-    width: 80%; /* Adjust the width as needed */
-    padding: 20px;
-    margin: 20px 0; /* Adjust margin to your preference */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
-/* Vertical line styling */
-.vertical-line {
-    width: 3px; /* Slightly thinner line for a sleeker look */
-    height: 107.5vh; /* Full height of the circular header */
-    background: linear-gradient(to bottom, #9b5de5, #f15bb5); /* Gradient for a modern look */
-    position: absolute;
-    left: 20px; /* Distance from the left edge */
-    top: 0;
-    z-index: 1; /* Ensure it stays behind other elements */
-    border-radius: 2px; /* Add rounded edges for a softer appearance */
+/* Sections */
+section {
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
 }
 
-/* Subtle glow effect */
-.vertical-line::after {
-    content: '';
-    position: absolute;
-    left: -5px; /* Adjust for glow positioning */
-    top: 0;
-    width: 13px; /* Glow width */
-    height: 100%; /* Match the height of the circular header */
-    background: radial-gradient(circle, rgba(155, 93, 229, 0.3), rgba(241, 91, 181, 0));
-    z-index: -1; /* Place the glow behind the line */
-    border-radius: 50%; /* Smooth glow edges */
-}
-
-/* Styling for the second, darker vertical line */
-.vertical-line-darker {
-    width: 2px; /* Slightly thinner line */
-    height: 107.5vh; /* Full height of the circular header */
-    background: linear-gradient(to bottom, #6c44a0, #b04891); /* Darker gradient for contrast */
-    position: absolute;
-    left: 26px; /* Slightly offset from the lighter line */
-    top: 0;
-    z-index: 1; /* Ensure it stays behind other elements */
-    border-radius: 2px; /* Add rounded edges for consistency */
-}
-
-/* Subtle glow effect for the darker line */
-.vertical-line-darker::after {
-    content: '';
-    position: absolute;
-    left: -5px; /* Adjust for glow positioning */
-    top: 0;
-    width: 12px; /* Glow width */
-    height: 100%; /* Match the height of the circular header */
-    background: radial-gradient(circle, rgba(107, 44, 178, 0.3), rgba(176, 72, 145, 0));
-    z-index: -1; /* Place the glow behind the line */
-    border-radius: 50%; /* Smooth glow edges */
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 600px) {
-    body {
-        font-size: 0.9rem; /* Slightly smaller font size on small screens */
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    p {
-        font-size: 1rem;
-    }
-
-    .content {
-        width: 90%; /* Make the main content take more space on small screens */
-    }
-
-    .sidebar {
-        display: none; /* Hide the sidebar on small screens */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
-.twitch-container {
-    display: flex;
-    flex-direction: row; /* Place stream and chat side by side */
-    justify-content: space-between;
-    gap: 20px; /* Add spacing between the stream and chat */
-    margin-top: 20px;
-    position: relative; /* Add this */
-    z-index: 1; /* Add this */
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 1rem;
 }
 
-/* Stream and chat styling */
-.twitch-stream, .twitch-chat {
-    flex: 1; /* Make both stream and chat take equal space */
-    height: 500px; /* Set a fixed height */
-    max-width: 48%; /* Limit the width to 48% of the container */
-    border: 1px solid #444; /* Optional: Add a border for better visibility */
-    border-radius: 8px; /* Optional: Add rounded corners */
-    overflow: hidden; /* Ensure content doesn't overflow */
-    position: relative; /* Add this */
-    z-index: 2; /* Add this */
-}
-
-/* Responsive layout for smaller screens */
-@media (max-width: 768px) {
-    .twitch-container {
-        flex-direction: column; /* Stack stream and chat vertically */
-        align-items: center; /* Center the content */
-    }
-
-    .twitch-stream, .twitch-chat {
-        width: 100%; /* Make them full width */
-        height: 400px; /* Adjust height for smaller screens */
-    }
-}
-.keyboard {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.key {
-    width: 40px;
+/* Image styles */
+.circular-image {
+    width: 200px;
     height: 200px;
-    margin: 0 5px;
-    background: white;
-    border: 1px solid black;
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    font-size: 1rem;
-    user-select: none; /* Prevent text selection */
-}
-
-.key:active {
-    background: lightgray;
-}
-
-@media (max-width: 768px) {
-    .key {
-        width: 30px;
-        height: 150px;
-        margin: 0 2px;
-    }
-}
-
-@media (max-width: 480px) {
-    .key {
-        width: 20px;
-        height: 100px;
-        margin: 0 1px;
-    }
-}
-
-.key span {
-    position: absolute;
-    bottom: 10px; /* Adjust as needed */
-    font-size: 1rem; /* Adjust font size as needed */
-    color: black;
-}
-
-#playlist {
-    list-style-type: none;
-    padding: 0;
-}
-
-#playlist li {
-    padding: 5px;
-    cursor: pointer;
-    margin-bottom: 0.5rem; /* Add spacing between list items */
-}
-
-#playlist li.active {
-    background-color: #8c00ff;
-    color: white;
-}
-
-.music-section {
-    border: 2px solid #6f00ff;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: #d773ffec;
-}
-
-.audio-player {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.audio-player audio {
-    width: 100%;
-    max-width: 600px;
-}
-
-.audio-player button {
-    margin: 10px;
-}
-
-#playlist {
-    list-style-type: none;
-    padding: 0;
-    width: 100%;
-    max-width: 600px;
+    object-fit: cover;
+    border-radius: 50%;
     margin: 0 auto;
 }
 
-#playlist li {
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 1px solid #ddd;
-}
-
-#playlist li.active {
-    background-color: #ae00ff;
-    color: white;
-}
-
-#currentTrackTitleSingle, #currentTrackTitleAlbum {
-    font-weight: bold;
-    margin-top: 10px;
+.image-container {
     text-align: center;
+    margin-bottom: 2rem;
 }
 
-.btn-gradient {
-    background: linear-gradient(45deg, #ff00cc, #333399);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-radius: 50px;
-    transition: background 0.3s ease;
-}
-btn-gradient:hover {
-    background: linear-gradient(45deg, #333399, #ff00cc);
+/* Music Player */
+.audio-player {
+    margin: 1rem 0;
 }
 
-.keys {
-    display: flex; /* Arrange the keys horizontally */
-    justify-content: center; /* Center the keys horizontally */
-    gap: 5px; /* Add spacing between the keys */
-    margin-top: 20px; /* Add some space above the keys */
+audio {
+    width: 100%;
+    margin: 1rem 0;
 }
 
-.key {
-    width: 50px; /* Set the width of each key */
-    height: 150px; /* Set the height of each key */
-    background-color: white; /* White keys */
-    border: 1px solid black; /* Add a border to each key */
-    border-radius: 5px; /* Optional: Slightly round the corners */
-    text-align: center; /* Center the text inside the key */
-    line-height: 150px; /* Vertically center the text */
-    font-weight: bold; /* Make the text bold */
-    cursor: pointer; /* Change the cursor to a pointer on hover */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    user-select: none; /* Prevent text selection on click */
+/* Twitch Stream */
+.twitch-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin: 1rem 0;
 }
 
-.key:active {
-    background-color: lightgray; /* Change color when pressed */
+.twitch-stream,
+.twitch-chat {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
-.circular-header {
-    display: flex;
-    justify-content: center; /* Center the image horizontally */
-    align-items: center; /* Center the image vertically */
-    background-color: transparent; /* Remove the purple background */
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-    .circular-image {
-        width: 50vw; /* Increase the size to 50% of the viewport width */
-        height: 50vw; /* Match height to width for a perfect circle */
-        border-color: purple; /* Change border color to purple */
-    }
-}
-
-@media (max-width: 480px) {
-    .circular-image {
-        width: 70vw; /* Further increase size for very small screens */
-        height: 70vw; /* Match height to width for a perfect circle */
-    }
-}
-
-.iframe-container {
-    margin: 20px 0;
-    padding: 15px;
-}
-
-.iframe-container a {
-    color: #9b5de5; /* Matches your purple theme */
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: color 0.3s ease;
-    padding: 10px 20px;
-    border: 2px solid #9b5de5;
-    border-radius: 5px;
-}
-
-.iframe-container a:hover {
-    color: #a93eb8;
-    background-color: #9b5de5;
-}
-
-/* Headings */
-h1, h2, h3 {
-    font-family: 'Poppins', sans-serif; /* Use Poppins for headings */
-    font-weight: 700; /* Make headings bold */
-    color: #ffffff; /* White text for contrast */
-    margin-bottom: 1rem; /* Add spacing below headings */
-}
-
-h1 {
-    font-size: 3rem; /* Large size for main headings */
-}
-
-h2 {
-    font-size: 2.5rem; /* Slightly smaller for subheadings */
-}
-
-h3 {
-    font-size: 2rem; /* Smaller for section titles */
-}
-
-/* Body Text */
-body, p, li {
-    font-family: 'Roboto', sans-serif; /* Use Roboto for body text */
-    font-weight: 400; /* Regular weight for readability */
-    font-size: 1.1rem; /* Slightly larger font size for better readability */
-    line-height: 1.6; /* Add line height for better spacing */
-    color: #e0e0e0; /* Light gray text for readability */
-}
-
-/* Links */
-a {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500; /* Slightly bold for emphasis */
-    color: #9b5de5; /* Match your purple theme */
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #f15bb5; /* Change color on hover */
-}
-
-/* Buttons */
-.btn-primary {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600; /* Bold text for buttons */
-    text-transform: uppercase; /* Make button text uppercase */
-    font-size: 1rem; /* Adjust font size */
-}
-
-/* Game Section Styling */
+/* Game Section */
 #game {
-    background: #1a1a1a;
-    padding: 2rem;
-    border-radius: 15px;
-    margin: 2rem 0;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-#app {
-    min-height: 400px;
-    width: 100%;
-    background: #242424;
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Game styling */
 .game-container {
-    width: 100%;
-    max-width: 800px;
+    width: 480px; /* Match canvas width */
     margin: 0 auto;
     padding: 20px;
     background: #1a1a1a;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .game-container canvas {
-    width: 100%;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
     height: auto;
     image-rendering: pixelated;
     border-radius: 5px;
 }
 
+.game-instructions {
+    width: 480px; /* Match game container width */
+    margin: 0 auto 20px auto;
+    background: #2a2a2a;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.game-instructions p {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.game-instructions ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.game-instructions li {
+    margin: 5px 0;
+    text-align: center;
+}
+
 .game-stats {
+    width: 100%;
     color: #fff;
     margin-top: 10px;
     font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: space-around;
+    gap: 20px;
 }
 
 .game-stats p {
     margin: 5px 0;
 }
 
-.mobile-controls {
-    display: none; /* Hidden by default */
-    margin-top: 20px;
+/* Synthesizer */
+.keys {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0;
+}
+
+.key {
+    width: 50px;
+    height: 150px;
+    background: white;
+    border: 1px solid #333;
+    cursor: pointer;
+}
+
+/* Forms */
+.form-control {
+    background-color: rgba(51, 51, 51, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+    color: #fff;
+}
+
+.form-control:focus {
+    background-color: rgba(68, 68, 68, 0.9);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.2rem rgba(155, 93, 229, 0.25);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+/* Button Styles */
+.btn {
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(155, 93, 229, 0.4);
+}
+
+/* Game Controls Enhancement */
+.control-btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border: none;
+    transition: var(--transition);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+/* Cool Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--primary), var(--secondary));
+    border-radius: 5px;
+}
+
+/* Footer Enhancement */
+footer {
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.3));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 20px 0;
     text-align: center;
 }
 
-/* Show mobile controls ONLY on touch devices */
-@media (hover: none) and (pointer: coarse) {
-    .mobile-controls {
-        display: block;
-    }
+footer a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: var(--transition);
 }
 
-/* Keep mobile controls hidden on desktop/laptops */
-@media (hover: hover) and (pointer: fine) {
-    .mobile-controls {
-        display: none;
-    }
+footer a:hover {
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent);
+}
+
+/* Mobile Controls */
+.mobile-controls {
+    display: none;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto 0;
 }
 
 .control-row {
     display: flex;
     justify-content: center;
-    margin: 5px 0;
+    align-items: center;
+    margin: 8px 0;
 }
 
 .control-btn {
-    width: 60px;
-    height: 60px;
-    margin: 0 5px;
+    width: 70px;
+    height: 70px;
+    margin: 5px;
     border: none;
-    border-radius: 50%;
-    background: #333;
+    border-radius: 15px;
+    background: rgba(42, 42, 42, 0.9);
     color: white;
-    font-size: 24px;
+    font-size: 28px;
     touch-action: manipulation;
-    user-select: none;
-    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Specific positioning for each button */
+.control-btn[data-direction="ArrowUp"] {
+    margin-bottom: 10px;
+}
+
+.control-btn[data-direction="ArrowLeft"] {
+    margin-right: 70px; /* Space between left and right */
+}
+
+.control-btn[data-direction="ArrowDown"] {
+    margin-top: 10px;
+}
+
+/* Button states */
 .control-btn:active {
-    background: #555;
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: rgba(52, 52, 52, 0.9);
 }
 
-/* Show mobile controls on touch devices */
 @media (hover: none) and (pointer: coarse) {
     .mobile-controls {
         display: block;
+        padding: 15px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    
+    .content {
+        padding: 10px;
+    }
+    
+    .circular-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .game-container,
+    .game-instructions {
+        width: 100%;
+        max-width: 480px;
+    }
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* Section Containers */
+section {
+    background: rgba(42, 42, 42, 0.6);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+section h2 {
+    color: var(--light);
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 2px;
+}
+
+/* Music Player Styling */
+.music-section {
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.music-section img {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.music-section img:hover {
+    transform: scale(1.02);
+}
+
+.audio-player {
+    background: rgba(20, 20, 20, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+audio {
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    border-radius: 20px;
+}
+
+audio::-webkit-media-controls-panel {
+    background: linear-gradient(145deg, #2a2a2a, #333);
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+    color: var(--light);
+}
+
+#playlist {
+    list-style: none;
+    padding: 0;
+}
+
+#playlist li {
+    background: rgba(40, 40, 40, 0.6);
+    margin: 5px 0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#playlist li:hover {
+    background: rgba(60, 60, 60, 0.8);
+    transform: translateX(5px);
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border: none;
+    padding: 8px 20px;
+    margin: 5px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(155, 93, 229, 0.3);
+    background: linear-gradient(45deg, var(--secondary), var(--primary));
+}
+
+/* Text Styling */
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    section {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    .music-section {
+        padding: 15px;
+    }
+
+    .audio-player {
+        padding: 15px;
     }
 }
