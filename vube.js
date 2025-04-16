@@ -46,17 +46,18 @@ const app = Vue.createApp({
             }
         },
         generateLevel() {
-            // Generate walls first
+            // Clear existing entities first
+            this.enemies = [];
+            this.health_blocks = [];
             this.walls = [];
+
+            // Generate walls first
             for (let i = 0; i < 15; i++) {
                 let x, y;
                 do {
                     x = Math.floor(Math.random() * 12);
                     y = Math.floor(Math.random() * 10);
-                } while (
-                    (x === this.player.pos.x && y === this.player.pos.y) ||
-                    (x === this.goal_pos.x && y === this.goal_pos.y)
-                );
+                } while (this.isColliding(x, y));
                 this.walls.push({ x, y });
             }
 
@@ -64,9 +65,7 @@ const app = Vue.createApp({
             const availableSpaces = [];
             for (let x = 0; x < 12; x++) {
                 for (let y = 0; y < 10; y++) {
-                    if (!this.walls.some(wall => wall.x === x && wall.y === y) &&
-                        !(x === this.player.pos.x && y === this.player.pos.y) &&
-                        !(x === this.goal_pos.x && y === this.goal_pos.y)) {
+                    if (!this.isColliding(x, y)) {
                         availableSpaces.push({ x, y });
                     }
                 }
@@ -78,26 +77,20 @@ const app = Vue.createApp({
                 [availableSpaces[i], availableSpaces[j]] = [availableSpaces[j], availableSpaces[i]];
             }
 
-            // Calculate how many spaces to fill
-            const totalSpaces = availableSpaces.length;
-            
-            // Enemy scaling remains the same
+            // Generate enemies - increase faster with levels
             const enemyCount = Math.min(
-                Math.floor(totalSpaces * (this.level / 15)), 
-                totalSpaces - 4  // Leave room for more health blocks
+                Math.floor(this.level * 4), // Enemies increase faster
+                availableSpaces.length - 1 // Leave at least 1 space for health
             );
-            
-            // More health blocks - scales with level but caps at 4
-            const healthCount = Math.min(4, Math.max(2, Math.floor(this.level / 3)));
-
-            // Generate enemies
-            this.enemies = [];
             for (let i = 0; i < enemyCount && availableSpaces.length > 0; i++) {
                 this.enemies.push(availableSpaces.pop());
             }
 
-            // Generate health blocks
-            this.health_blocks = [];
+            // Generate health blocks - start at 1, increase slightly, max at 4
+            const healthCount = Math.min(
+                4, // Maximum of 4 health blocks
+                Math.floor(this.level / 3) + 1 // Increase every 3 levels
+            );
             for (let i = 0; i < healthCount && availableSpaces.length > 0; i++) {
                 this.health_blocks.push(availableSpaces.pop());
             }
@@ -282,34 +275,31 @@ const app = Vue.createApp({
             }, 1000);
         },
         resetGame() {
-            // Reset player state
-            this.player.health = 10;
-            this.player.pos = { x: 1, y: 1 };
-            
-            // Reset game state
-            this.level = 1;
+            // Stop all game loops and timers
+            this.gameEnded = true;
+            cancelAnimationFrame(this.gameLoopId);
+            clearInterval(this.timerInterval);
+
+            // Reset all game state
+            this.player = {
+                pos: { x: 1, y: 1 },
+                health: 10
+            };
+            this.level = 1; // Reset to level 1
             this.timer = 0;
+
+            // Clear all entities
+            this.enemies.splice(0, this.enemies.length);
+            this.health_blocks.splice(0, this.health_blocks.length);
+            this.walls.splice(0, this.walls.length);
+
+            // Reset game state and generate new level
             this.gameEnded = false;
-            
-            // Clear existing entities
-            this.enemies = [];
-            this.health_blocks = [];
-            this.walls = [];
-            
-            // Generate new level
             this.generateLevel();
-            
-            // Restart game loop
-            if (this.gameLoopId) {
-                cancelAnimationFrame(this.gameLoopId);
-            }
-            this.gameLoop();
-            
-            // Reset timer
-            if (this.timerInterval) {
-                clearInterval(this.timerInterval);
-            }
+
+            // Restart game systems
             this.startTimer();
+            this.gameLoop();
         }
     },
     template: `
